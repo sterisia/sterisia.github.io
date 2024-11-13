@@ -342,6 +342,16 @@ a{
     margin-right: 15px;
 }
 
+/* Text Bubble Text (Del) Formatting */
+.textBubTxtDel{
+    color: darkslategray;
+    font-family: 'CookieRun';
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
 .txtSpacer{
     text-align: right;
     border-radius: 25px;
