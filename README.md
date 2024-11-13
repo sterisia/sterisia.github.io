@@ -14,3 +14,6 @@ Note:
 
 Credits:
 - Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/ 
+- Calm Neutral BGM:
+  - Music provided by 브금대통령
+  - Track : 다녀왔습니다 - https://youtu.be/Jj7lNhafU98
