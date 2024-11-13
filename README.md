@@ -13,7 +13,8 @@ Note:
   - By which I mean I started working on it as a means to stay awake at the library so I don't pass out of boredom
 
 Credits:
-- Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/ 
+- Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/
+- Clothes Hanger SFX: https://pixabay.com/sound-effects/moving-coat-hangers-in-an-metal-suport-33538/ 
 - Calm Neutral BGM:
   - Music provided by 브금대통령
   - Track : 다녀왔습니다 - https://youtu.be/Jj7lNhafU98
