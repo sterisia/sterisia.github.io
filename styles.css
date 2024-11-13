@@ -8,6 +8,9 @@ GALAXY THEME */
     --offwhi: #FCFFF7;
     --pi: #DDA4A4;
     --phoneblue: #daeaf6;
+    --textbub: #ACC7CB;
+    --textbubr: #B7C3D3;
+
 }
 
 /* FONTS */ 
@@ -59,7 +62,7 @@ GALAXY THEME */
 input[type=text]{
     width: 96%;
     padding: 12px;
-    margin-top: 10%;
+    margin-top: 2%;
     margin-left: 2%;
     margin-bottom: 0%;
     display: inline-block;
@@ -281,7 +284,7 @@ a{
 
 /* Text Bubble (Left) Div */
 .textBub{
-    background-color: white;
+    background-color: var(--textbub);
     text-align: left;
     border-radius: 25px;
     border-style: solid;
@@ -290,11 +293,12 @@ a{
     margin-left: 2%;
     margin-right: 50%;
     margin-top: 1%;
+    margin-bottom: 0%;
 }
 
 /* Text Bubble (Right) Div */
 .textBubR{
-    background-color: white;
+    background-color: var(--textbubr);
     text-align: left;
     border-radius: 25px;
     border-style: solid;
@@ -303,6 +307,7 @@ a{
     margin-left: 50%;
     margin-right: 2%;
     margin-top: 1%;
+    margin-bottom: 0%;
 }
 
 
