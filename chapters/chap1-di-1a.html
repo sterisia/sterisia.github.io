@@ -308,9 +308,26 @@
             <p>The room was rather tidy for its size, and the <em>closet</em> happened to be a <em>dressing room</em> you never dreamt of owning.</p>
         </div>
 
+        <div class="soundsThree" data-aos="fade" style="margin-top: 15%;">
+            <script>
+                const audio3 = new Audio("../audio/getDressed-sfx.mp3")
+                ScrollTrigger.create({
+                    trigger: '.soundsThree',
+                    start: 'top center',
+                    end: '+=100%',
+
+                    onEnter() {audio3.play()},
+                    onLeave() {audio3.pause()},
+                    onEnterBack() {audio3.play()},
+                    onLeaveBack() {audio3.pause()},
+                })
+            </script>        
+            <p class="classicTextBl">༘˚⋆𐙚｡⋆𖦹.✧</p>
+        </div>
+
         <!-- Story Block -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>Once in the dressing room, it was immediately appparent to you that Polaris appealed greatly to your taste in fashion.</p>
+            <p>Once in the dressing room, it was immediately apparent to you that Polaris appealed greatly to your taste in fashion.</p>
             <p>Having changed with no big difficulty, you admired your new self, or rather, Polaris' appearance, before hurrying out of the room.</p>
         </div>
 
