@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHAP 1</title>
+        <link rel="stylesheet" href="../../styles.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    </head>
+
+    <body class="storyBackTwo">
+
+        <!-- OPTIONAL COMPONENT: BGM -->
+        <div class="sounds">
+            <script>
+                const audio = new Audio("../../audio/calmNeutral-bgm.aac")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: '+=500%',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+
+                    markers:true
+                })
+            </script>        
+        </div>
+        <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
+        <div class="classicTextBl">
+        <p>---Click anywhere for audio experience---</p>
+        </div>
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- NECESSARY COMPONENT: STORY BLOCK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>TEXT</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: SCROLL REMINDER -->
+        <div class="classicTextBl" data-aos="fade" data-aos-delay="800" style="margin-bottom: 25%;">
+            <p>↓</p>
+        </div>
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- Notification Block -->
+        <div class="notiMsg" style="margin-bottom: 0%; text-align: left;">
+            <p style="margin-left: 5px; font-family: CookieRun; font-size: 15px;">You have 3 new notifications:</p>
+        </div>
+        <div class="notiMsg">
+            <p class="notiMsgTxt">USER: INSERT_TEXT</p>
+        </div>
+
+        
+
+        <!-- ********************************************************************************************  -->
+        <!-- Phone Screen -->
+        <div class="phnScrn" style="margin-top: 25%;">
+            <!-- NECESSARY COMPONENT: Chat User's Name -->
+            <p class="phnScrnTxt">◄ &nbsp; CHAT_USER_NAME</p>
+            <hr/>
+
+            <!-- NECESSARY COMPONENT: Date of Chat -->
+            <p class="classicTextBl" style="font-size: 15px;">DATE</p>
+            <br/>
+
+            <!-- OPP CHAT CONTAINER -->
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div class="textBub" margin-top: 0%">
+                    <p class="textBubTxt">TEXT</p>
+                </div>
+                
+                <!-- Text Bubble Opp: Staggered Animations -->
+                <div id="topLvl" class="textBub" data-aos="fade"  data-aos-delay="200">
+                    <p class="textBubTxt">TEXT-TOP-LVL</p>
+                </div>
+
+                <!-- Text Bubble Opp: Staggered Animations -->
+                <div id="msg2" class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#topLvl" data-aos-anchor-placement="center-center" data-aos-delay="1000">
+                    <p class="textBubTxt">TEXT-MSG2</p>
+                </div>
+            </div>
+
+            <!-- USER CHAT CONTAINER -->
+            <div>
+                <!-- USER CHAT -->
+                <div class="textBubRCont">
+                    <!-- NECESSARY COMPONENT: Text Bubble User: STAGGERED -->
+                    <div id="msg3" class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg2" data-aos-anchor-placement="center-center" >
+                        <p class="textBubTxt">TEXT3</p>
+                    </div>
+                </div>
+                <!-- SPACER -->
+                <div class="txtSpacer">
+                    <p class="txtSpacerTxt">TEXT3</p> 
+                </div>
+
+
+            <!-- NECESSARY COMPONENT: Text Input Field -->
+            <div>           
+                <input type="text" placeholder="Type...">
+            </div>
+            <br/>
+        </div>
+
+
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- Story Divergence 'Buttons' -->
+         <!-- NECESSARY COMPONENT: First Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a href="chap1-di-1a234a.html" class="storyProgText">Explore Aquila's Business District</a>
+        </div>
+
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a href="chap1-di-1a234b.html" class="storyProgText">You're Too Tired; Let's Go Home</a>
+        </div>
+
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a href="chap1-di-1a234c.html" class="storyProgText">Ponder Life for a Minute</a>
+        </div>
+
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a href="chap1-di-1a234d.html" class="storyProgText">You're Hungry; Let's Go Eat</a>
+        </div>
+
+        <!-- NECESSARY COMPONENT: Second Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
+            <a href="chap1-di-1a234e.html" class="storyProgText">Look Through the Stores at the Station</a>
+        </div>
+
+
+        <!-- SFX BLOCK -->
+        <div class="soundsTwo" data-aos="fade" style="margin-top: 15%;">
+            <p class="classicTextBl">♫♫♫</p>
+            <script>
+                const audio2 = new Audio("../../audio/noti-sound.mp3")
+                ScrollTrigger.create({
+                    trigger: '.soundsTwo',
+                    start: 'top center',
+                    end: '+=100%',
+
+                    onEnter() {audio2.play()},
+                    onLeave() {audio2.pause()},
+                    onEnterBack() {audio2.play()},
+                    onLeaveBack() {audio2.pause()},
+                })
+
+            </script>
+        </div>
+        
+
+        <!-- ********************************************************************************************  -->
+        <!-- NECESSARY COMPONENT: Animation Scroll Script -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+    </body>
+</html>
