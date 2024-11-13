@@ -17,7 +17,7 @@
                 ScrollTrigger.create({
                     trigger: '.sounds',
                     start: '+=100%',
-                    end: '+=600%',
+                    end: '+=1200%',
 
                     onEnter() {audio.play()},
                     onLeave() {audio.pause()},
@@ -26,6 +26,7 @@
 
                     markers:true
                 })
+                audio.loop=true;
             </script>        
         </div>
 
@@ -55,7 +56,7 @@
 
         <!-- Story Block -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>Ari? and who's Vega?</p>
+            <p>Ari? And who's Vega?</p>
             <p>You decided you'd have time to worry about that later as it dawned on you that Ari was probably a nickname.</p> 
             <p>After feeling a little guilty about looking at what you felt was someone else's privacy, you touched the notification.</p>
         </div>
@@ -149,28 +150,95 @@
             </div>
             
             <!-- Text Bubble Opp -->
-            <div class="textBub" data-aos="fade" data-aos-delay="200" style="margin-right: 65%;">
+            <div id="topLvl" class="textBub" data-aos="fade"  data-aos-delay="200" style="margin-right: 65%;">
                 <p class="textBubTxt">Are you feeling better?</p>
             </div>
 
-            <div class="textBub" data-aos="fade" data-aos-delay="2000" >
+            <!-- Text Bubble Opp -->
+            <div id="msg2" class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#topLvl" data-aos-anchor-placement="center-center" data-aos-delay="1000">
                 <p class="textBubTxt">You're sure you're not feeling weird?</p>
             </div>
 
             <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div class="textBubR" data-aos="fade" data-aos-delay="3000" style="margin-left: 72%;">
+            <div id="msg3" class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg2" data-aos-anchor-placement="center-center" style="margin-left: 72%;">
                 <p class="textBubTxt">Thanks for asking</p>
             </div>
 
             <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div class="textBubR" data-aos="fade" data-aos-delay="3000" style="margin-left: 76%;">
+            <div id="msg4"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg3" data-aos-anchor-placement="center-center"  style="margin-left: 76%;">
                 <p class="textBubTxt">I think I'm okay</p>
             </div>
+
             <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div class="textBubR" data-aos="fade" data-aos-delay="3000" style="margin-left: 68%;">
+            <div id="msg5"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg4" data-aos-anchor-placement="center-center"  style="margin-left: 68%;">
                 <p class="textBubTxt">And yeah I'm at home</p>
             </div>
 
+            <!-- Text Bubble Opp -->
+            <div id="msg6"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg5" data-aos-anchor-placement="center-center">
+                <p class="textBubTxt">Okay enough to help out Xihe again?</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg7"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg6" data-aos-anchor-placement="center-center">
+                <p class="textBubTxt">Do you have to go? I still don't think you should be overdoing things</p>
+            </div>
+
+            <!-- NECESSARY COMPONENT: Text Bubble User -->
+            <div id="msg8"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg7" data-aos-anchor-placement="center-center"  style="margin-left: 87.5%;">
+                <p class="textBubTxt">Xihe?</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg9"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg8" data-aos-anchor-placement="center-center">
+                <p class="textBubTxt">You promised to help Xihe out with her volunteer work at Lyx Station</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg10"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg9" data-aos-anchor-placement="center-center"
+            style="margin-right: 80%;">
+                <p class="textBubTxt">Ring a bell?</p>
+            </div>
+
+            <!-- NECESSARY COMPONENT: Text Bubble User -->
+            <div id="msg11"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg10" data-aos-anchor-placement="center-center"  style="margin-left: 78%;">
+                <p class="textBubTxt">Oh yeah I did</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg12"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg11" data-aos-anchor-placement="center-center"
+            style="margin-right: 92%;">
+                <p class="textBubTxt">...</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg13"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg12" data-aos-anchor-placement="center-center"
+            >
+                <p class="textBubTxt">I'm here. Do you want me to leave your course materials with the doorkeeper?</p>
+            </div>
+
+            <!-- NECESSARY COMPONENT: Text Bubble User -->
+            <div id="msg14"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg13" data-aos-anchor-placement="center-center"  style="margin-left: 77%;">
+                <p class="textBubTxt">Yes thank you</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg15"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg14" data-aos-anchor-placement="center-center"
+            style="margin-right: 52%;">
+                <p class="textBubTxt">You might as well get dressed then</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg16"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg15" data-aos-anchor-placement="center-center"
+            style="margin-right: 76%;">
+                <p class="textBubTxt">Take your time</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div id="msg17"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg16" data-aos-anchor-placement="center-center"
+            style="margin-right: 73%;">
+                <p class="textBubTxt">I'll take you there</p>
+            </div>
 
             <!-- NECESSARY COMPONENT: Text Input Field -->
             <div>           
@@ -180,16 +248,72 @@
             <br/>
         </div>
 
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You quickly put down the device and frantically looked around the room. This Vega person was already here and waiting?</p>
+            <p>Getting the feeling that you probably shouldn't make them wait, you quickly scanned the large room for a closet.</p> 
+            <p>The room was rather tidy for its size, and the <em>closet</em> happened to be a <em>dressing room</em> you never dreamt of owning.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>Once in the dressing room, it was immediately appparent to you that Polaris appealed greatly to your taste in fashion.</p>
+            <p>Having changed with no big difficulty, you admired your new self, or rather, Polaris' appearance, before hurrying out of the room.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You were right.</p>
+            <p>Polaris was <em>definitely</em> rich.</p>
+            <p>You finally managed to find the front doors of this positive mansion and steadied yourself.</p>
+            <p>You needed the breather after all, before meeting the person on the other side.</p>
+            <p>Finally pushing open the doors, you glanced over the porch, your gaze landing on a young man waiting stiffly by the entrance.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"Hey. Ready to go?"</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You almost forgot to respond. Vega was so incredibly... stunning.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"Yeah."</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>He nodded and spun on his heel, waiting for you to keep up with him as you both walk out to the gates.</p>
+            <p>You admired his features subtly as you walked beside him, mostly keeping quiet till he addressed you.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"Polaris. Be honest. What's wrong?"</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>His pretty face had settled into subtle frustration and confusion.</p>
+            <p>Ceasing to go on, he observed you for a silent moment.</p>
+        </div>
+
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"You're not acting like yourself. And don't even try to lie. We've known each other too long for that."</p>
+        </div>
 
 
-
-
+        <!-- Story Divergence Point -->
         <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
-            <a class="storyProgText">OPTION</a>
+            <a class="storyProgText">"I actually don't remember anything."</a>
         </div>
 
         <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
-            <a class="storyProgText">OPTION</a>
+            <a class="storyProgText">"I told you I'm fine..."</a>
         </div>
 
         
