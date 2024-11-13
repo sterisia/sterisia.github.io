@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHAP 1</title>
+        <link rel="stylesheet" href="../styles.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </head>
+
+    <body class="storyBackTwo">
+
+        <!-- OPTIONAL COMPONENT: BGM -->
+        <div class="sounds">
+            <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+            <script>
+                const audio = new Audio("../audio/calmNeutral-bgm.aac")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: '+=500%',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+
+                    markers:true
+                })
+            </script>        
+        </div>
+
+        <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
+        <div class="classicTextBl">
+        <p>---Click anywhere for audio experience---</p>
+        </div>
+
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>As soon as you picked up the phone, you are surprised to see it light up. What was once a blank white card, now displayed an intuitive display, and you realized that this device was indeed phone-like for what it was worth.</p>
+        </div>
+
+        <div class="classicTextBl" data-aos="fade" data-aos-delay="800" style="margin-bottom: 25%;">
+            <p>↓</p>
+        </div>
+
+        <!-- Notification Block -->
+        <div class="notiMsg" style="margin-bottom: 0%; text-align: left;">
+            <p style="margin-left: 5px; font-family: CookieRun; font-size: 15px;">You have 3 new notifications:</p>
+        </div>
+        <div class="notiMsg">
+            <p class="notiMsgTxt">Vega✵: Ari</p>
+            <p class="notiMsgTxt">Vega✵: Are you home?</p>
+            <p class="notiMsgTxt">Vega✵: I just picked up our course materials for the term.</p>
+
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>Ari? and who's Vega?</p>
+            <p>You decided you'd have time to worry about that later and after feeling a little guilty about looking at what you felt was someone else's privacy, you touched the notification.</p>
+        </div>
+
+        <!-- Phone Screen -->
+        <div class="phnScrn" style="margin-top: 25%;">
+            <!-- NECESSARY COMPONENT: Chat User's Name -->
+            <p class="phnScrnTxt">Vega✵</p>
+            <hr/>
+
+            <!-- NECESSARY COMPONENT: Date of Chat -->
+            <p class="classicTextBl" style="font-size: 15px;">Today</p>
+            <br/>
+
+            <!-- Text Bubble Opp -->
+            <div class="textBub" style="margin-right: 90%; margin-top: 0%">
+                <p class="textBubTxt">Ari</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div class="textBub" style="margin-right: 76%;">
+                <p class="textBubTxt">Are you home?</p>
+            </div>
+
+            <!-- Text Bubble Opp -->
+            <div class="textBub" >
+                <p class="textBubTxt">I just picked up our course materials for the term.</p>
+            </div>
+
+            <!-- Text Bubble Opp
+            <div class="textBub" style="margin-right: 90%; margin-top: 0%">
+                <p class="textBubTxt">Ari</p>
+            </div> -->
+            
+            <!-- Text Bubble User -->
+
+            <!-- <div class="textBubR">
+                <p class="textBubTxt">ariogjaoerigjoa</p>
+            </div> -->
+
+            <!-- NECESSARY COMPONENT: Text Input Field -->
+            <div>           
+                <input type="text" placeholder="Type...">
+            </div>
+
+            <br/>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You took a brief glance around you, taking a moment to look at your surroundings.</p>
+            <p>Yup. It sure looked like a room alright. You were probably in this <em>Polaris</em>' home.</p>
+            <p>It didn't take much for you to realize that Polaris' room was quite well-furnished and large.</p>
+        </div>
+
+        <!-- Story Block -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>Maybe she was rich?</p>
+        </div>
+
+
+
+
+
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a class="storyProgText">OPTION</a>
+        </div>
+
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
+            <a class="storyProgText">OPTION</a>
+        </div>
+
+        
+
+
+        
+
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+    </body>
+</html>
