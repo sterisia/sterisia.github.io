@@ -17,7 +17,7 @@
                 ScrollTrigger.create({
                     trigger: '.sounds',
                     start: '+=100%',
-                    end: '+=1200%',
+                    end: "max",
 
                     onEnter() {audio.play()},
                     onLeave() {audio.pause()},
@@ -71,20 +71,24 @@
             <p class="classicTextBl" style="font-size: 15px;">Today</p>
             <br/>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" style="margin-right: 90%; margin-top: 0%">
-                <p class="textBubTxt">Ari</p>
-            </div>
+            <!-- OPP CHAT CONTAINER -->
+             <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div class="textBub" 90%; margin-top: 0%">
+                    <p class="textBubTxt">Ari</p>
+                </div>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" style="margin-right: 76%;">
-                <p class="textBubTxt">Are you home?</p>
-            </div>
+                <!-- Text Bubble Opp -->
+                <div class="textBub" >
+                    <p class="textBubTxt">Are you home?</p>
+                </div>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" >
-                <p class="textBubTxt">I just picked up our course materials for the term</p>
-            </div>
+                <!-- Text Bubble Opp -->
+                <div class="textBub" >
+                    <p class="textBubTxt">I just picked up our course materials for the term</p>
+                </div>
+             </div>
+
 
             <!-- NECESSARY COMPONENT: Text Input Field -->
             <div>           
@@ -134,117 +138,166 @@
             <p class="classicTextBl" style="font-size: 15px;">Today</p>
             <br/>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" style="margin-right: 90%; margin-top: 0%">
-                <p class="textBubTxt">Ari</p>
+            <!-- OPP CHAT CONTAINER -->
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div class="textBub" margin-top: 0%">
+                    <p class="textBubTxt">Ari</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div class="textBub">
+                    <p class="textBubTxt">Are you home?</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div class="textBub" >
+                    <p class="textBubTxt">I just picked up our course materials for the term</p>
+                </div>
+                
+                <!-- Text Bubble Opp -->
+                <div id="topLvl" class="textBub" data-aos="fade"  data-aos-delay="200">
+                    <p class="textBubTxt">Are you feeling better?</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div id="msg2" class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#topLvl" data-aos-anchor-placement="center-center" data-aos-delay="1000">
+                    <p class="textBubTxt">You're sure you're not feeling weird?</p>
+                </div>
             </div>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" style="margin-right: 76%;">
-                <p class="textBubTxt">Are you home?</p>
+            <!-- USER CHAT CONTAINER -->
+            <div>
+                <!-- USER CHAT -->
+                <div class="textBubRCont">
+                    <!-- NECESSARY COMPONENT: Text Bubble User -->
+                    <div id="msg3" class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg2" data-aos-anchor-placement="center-center" >
+                        <p class="textBubTxt">Thanks for asking</p>
+                    </div>
+                </div>
+                <!-- SPACER -->
+                <div class="txtSpacer">
+                    <p class="txtSpacerTxt">Thanks for asking</p> 
+                </div>
+
+
+                <!-- USER CHAT -->
+                <div class="textBubRCont">
+                    <!-- NECESSARY COMPONENT: Text Bubble User -->
+                    <div id="msg4"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg3" data-aos-anchor-placement="center-center" >
+                        <p class="textBubTxt">I think I'm okay</p>
+                    </div>
+                </div>
+                <!-- SPACER -->
+                <div class="txtSpacer">
+                    <p class="txtSpacerTxt">I think I'm okay</p> 
+                </div>
+
+
+                <!-- USER CHAT -->
+                <div class="textBubRCont">
+                    <!-- NECESSARY COMPONENT: Text Bubble User -->
+                    <div id="msg5"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg4" data-aos-anchor-placement="center-center" >
+                        <p class="textBubTxt">And yeah I'm at home</p>
+                    </div>
+                </div>
+                <!-- SPACER -->
+                <div class="txtSpacer">
+                    <p class="txtSpacerTxt">And yeah I'm at home</p> 
+                </div>
             </div>
 
-            <!-- Text Bubble Opp -->
-            <div class="textBub" >
-                <p class="textBubTxt">I just picked up our course materials for the term</p>
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div id="msg6"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg5" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Okay enough to help out Xihe again?</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div id="msg7"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg6" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Do you have to go? I still don't think you should be overdoing things</p>
+                </div>
+            </div>
+
+            <div class="textBubRCont">
+                <!-- NECESSARY COMPONENT: Text Bubble User -->
+                <div id="msg8"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg7" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Xihe?</p>
+                </div>
+            </div>
+
+            <div class="txtSpacer">
+                <p class="txtSpacerTxt"><br/></p> 
+            </div>
+
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div id="msg9"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg8" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">You promised to help Xihe out with her volunteer work at Lyx Station</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div id="msg10"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg9" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Ring a bell?</p>
+                </div>
+            </div>
+
+            <div class="textBubRCont">
+                <!-- NECESSARY COMPONENT: Text Bubble User -->
+                <div id="msg11"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg10" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Oh yeah I did</p>
+                </div>
             </div>
             
-            <!-- Text Bubble Opp -->
-            <div id="topLvl" class="textBub" data-aos="fade"  data-aos-delay="200" style="margin-right: 65%;">
-                <p class="textBubTxt">Are you feeling better?</p>
+            <div class="txtSpacer">
+                <p class="txtSpacerTxt"><br/></p> 
             </div>
 
-            <!-- Text Bubble Opp -->
-            <div id="msg2" class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#topLvl" data-aos-anchor-placement="center-center" data-aos-delay="1000">
-                <p class="textBubTxt">You're sure you're not feeling weird?</p>
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div id="msg12"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg11" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">...</p>
+                </div>
+
+                <!-- Text Bubble Opp -->
+                <div id="msg13"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg12" data-aos-anchor-placement="center-center"
+                >
+                    <p class="textBubTxt">I'm here. Do you want me to leave your course materials with the doorkeeper?</p>
+                </div>
             </div>
 
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg3" class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg2" data-aos-anchor-placement="center-center" style="margin-left: 72%;">
-                <p class="textBubTxt">Thanks for asking</p>
+            <div class="textBubRCont">
+                <!-- NECESSARY COMPONENT: Text Bubble User -->
+                <div id="msg14"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg13" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Yes thank you</p>
+                </div>
             </div>
 
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg4"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg3" data-aos-anchor-placement="center-center"  style="margin-left: 76%;">
-                <p class="textBubTxt">I think I'm okay</p>
+            <div class="txtSpacer">
+                <p class="txtSpacerTxt"><br/></p> 
             </div>
+            
+            <div class="textBubCont">
+                <!-- Text Bubble Opp -->
+                <div id="msg15"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg14" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">You might as well get dressed then</p>
+                </div>
 
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg5"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg4" data-aos-anchor-placement="center-center"  style="margin-left: 68%;">
-                <p class="textBubTxt">And yeah I'm at home</p>
-            </div>
+                <!-- Text Bubble Opp -->
+                <div id="msg16"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg15" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">Take your time</p>
+                </div>
 
-            <!-- Text Bubble Opp -->
-            <div id="msg6"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg5" data-aos-anchor-placement="center-center">
-                <p class="textBubTxt">Okay enough to help out Xihe again?</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg7"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg6" data-aos-anchor-placement="center-center">
-                <p class="textBubTxt">Do you have to go? I still don't think you should be overdoing things</p>
-            </div>
-
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg8"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg7" data-aos-anchor-placement="center-center"  style="margin-left: 87.5%;">
-                <p class="textBubTxt">Xihe?</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg9"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg8" data-aos-anchor-placement="center-center">
-                <p class="textBubTxt">You promised to help Xihe out with her volunteer work at Lyx Station</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg10"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg9" data-aos-anchor-placement="center-center"
-            style="margin-right: 80%;">
-                <p class="textBubTxt">Ring a bell?</p>
-            </div>
-
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg11"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg10" data-aos-anchor-placement="center-center"  style="margin-left: 78%;">
-                <p class="textBubTxt">Oh yeah I did</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg12"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg11" data-aos-anchor-placement="center-center"
-            style="margin-right: 92%;">
-                <p class="textBubTxt">...</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg13"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg12" data-aos-anchor-placement="center-center"
-            >
-                <p class="textBubTxt">I'm here. Do you want me to leave your course materials with the doorkeeper?</p>
-            </div>
-
-            <!-- NECESSARY COMPONENT: Text Bubble User -->
-            <div id="msg14"  class="textBubR" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg13" data-aos-anchor-placement="center-center"  style="margin-left: 77%;">
-                <p class="textBubTxt">Yes thank you</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg15"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg14" data-aos-anchor-placement="center-center"
-            style="margin-right: 52%;">
-                <p class="textBubTxt">You might as well get dressed then</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg16"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg15" data-aos-anchor-placement="center-center"
-            style="margin-right: 76%;">
-                <p class="textBubTxt">Take your time</p>
-            </div>
-
-            <!-- Text Bubble Opp -->
-            <div id="msg17"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg16" data-aos-anchor-placement="center-center"
-            style="margin-right: 73%;">
-                <p class="textBubTxt">I'll take you there</p>
+                <!-- Text Bubble Opp -->
+                <div id="msg17"  class="textBub" data-aos="fade" data-aos-delay="200" data-aos-anchor="#msg16" data-aos-anchor-placement="center-center">
+                    <p class="textBubTxt">I'll take you there</p>
+                </div>
             </div>
 
             <!-- NECESSARY COMPONENT: Text Input Field -->
             <div>           
                 <input type="text" placeholder="Type...">
             </div>
-
             <br/>
         </div>
 
@@ -317,7 +370,10 @@
         </div>
 
         
-
+        <!-- Story Block: Extra Scroll Space (ft. empty) -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 50%;">
+            <p>&nbsp;</p>
+        </div>
 
         
 
