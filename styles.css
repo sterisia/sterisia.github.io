@@ -1,0 +1,232 @@
+/* COLOUR SCHEMES */
+/*
+GALAXY THEME */
+:root{
+    --darkpur: #9999C7;
+    --lipur: #C8BDE0;
+    --palepurpi: #E8D9E0;
+    --offwhi: #FCFFF7;
+    --pi: #DDA4A4;
+}
+
+/* FONTS */ 
+/* =========================================================================================================================== */
+/* Fancy Title Page Colour */
+@font-face {
+    font-family: 'Shilla';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/Shilla_CultureB-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Classic Title Font */
+@font-face {
+    font-family: 'STUNNING-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/STUNNING-Bd.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Clean UI Font */
+@font-face {
+    font-family: 'Noonnu';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noon-2410@1.0/NoonnuBasicGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Main Font ft. clean~ */
+@font-face {
+    font-family: 'S-CoreDream';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================================================================================================================== */
+
+/* STUFF I DON'T KNOW HOW TO USE */
+/* =========================================================================================================================== */
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    box-sizing: border-box;
+  }
+
+/* BIG BODY SELECTORS */
+/* =========================================================================================================================== */
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+a{
+    color:beige;
+}
+
+
+/* ID'S */
+/* =========================================================================================================================== */
+/* Glossary Text Formatting */
+#a-words{
+    color: white;
+    margin-left: 50px;
+    font-family: 'Noonnu';
+}
+
+/* Main (Special) Title Formatting */
+#titlePage{
+    color: azure;
+    font-family: 'Shilla';
+    text-align: center;
+    font-size: 150px;
+}
+
+/* Special Entry Button (PORTAL)  */
+#portal{
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--darkpur);
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 15%;
+    border-radius: 35px;
+}
+
+
+/* Special Entry Button (PORTAL) Text Formatting */
+#portalText{
+    font-size: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'S-CoreDream';
+    color: black;
+}
+
+/* Error Div Formatting */
+#errorDiv{
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Error Text Formatting */
+#errorText{
+    color: azure;
+    font-family: 'STUNNING-Bd';
+    text-align: center;
+    font-size: 100px;
+    text-decoration: none;
+}
+
+
+/* Special Stuff For Scrolls */
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+/* CLASSES */
+/* =========================================================================================================================== */
+/* Starter Background */
+.starterBack{
+    background-color: black;
+}
+
+.storyBack{
+    background-color: #9999C7;
+}
+
+
+.notification{
+    background: #9999C7;
+}
+
+
+/* Normal Title */
+.title{
+    color: azure;
+    font-family: 'STUNNING-Bd';
+    text-align: center;
+    font-size: 85px;
+}
+
+/* Footer Div */
+.footer{
+    margin-top: 100px;
+}
+
+/* Footer Text Formatting */
+.footerIND{
+    margin-left: 5%;
+}
+
+
+/* Classic Text Formatting */
+.classicText{
+    color: azure;
+    font-family: 'S-CoreDream';
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    font-size: 25px;
+}
+
+/* Error Div Formattings */
+.errorDivs{
+    background: red;
+    margin-left: 5%;
+    margin-right: 30%;
+    text-align: center;
+}
+
+/* Error Div Text Formatting */
+.errorDivText{
+    font-family: 'Noonnu';
+    color: white;
+    padding: 8%;
+    font-size: 60px;
+}
+
+/* Story Progression Buttons */
+.storyProgBun{
+    background: #DDA4A4;
+    border-radius: 35px;
+    text-align: center;
+    margin: 2%;
+    margin-left:35%;
+    margin-right: 35%;
+    text-decoration: none;
+}
+
+/* Story Progreen Button Text Formatting */
+.storyProgText{
+    text-align: center;
+    font-size: 50px;
+    color: black;
+    font-family: 'Shilla';
+    text-decoration: none;
+}
+
+
+/* THE FORGOTTEN ONES
+/* =========================================================================================================================== */
+/* Username Input Text Formatting */
+/* .username{
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+#username{
+    background-color:beige;
+    text-align:center;
+    font-family: 'Noonnu';
+    font-size: 20px;
+}
+
+
+ */ 
