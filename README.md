@@ -5,14 +5,14 @@ A 'just-for-fun' Choose Your Own Adventure-Esque HTML hell. Reads like a female-
 - Please view in full screen mode
 - Story Status: Incomplete
 
-Note:
+**NOTE:**
 - This is a hobby project
 - Story drew ***heavy*** inspiration from Arcana Twilight (game) for some of its characters and elements, but is otherwise original
 - I am not a web developer, programmer, or developer in general, so please bear with me (by which I mean it's not perfect at all and I have no idea how to use JS to make everything appear on one page instead of using millions of linked html files to do what I want with it)
 - Please actually don't play through this project because I swear I wasn't thinking straight when I decided to start/post this.
   - By which I mean I started working on it as a means to stay awake at the library so I don't pass out of boredom
 
-Credits:
+**CREDITS:**
 - Error Sound: https://pixabay.com/sound-effects/error-warning-login-denied-132113/ 
 - Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/
 - Clothes Hanger SFX: https://pixabay.com/sound-effects/moving-coat-hangers-in-an-metal-suport-33538/
