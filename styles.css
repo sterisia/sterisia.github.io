@@ -195,8 +195,8 @@ a{
 .classicText{
     color: azure;
     font-family: 'S-CoreDream';
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 25%;
+    margin-right: 25%;
     text-align: center;
     font-size: 25px;
 }
@@ -204,8 +204,8 @@ a{
 .classicTextBl{
     color: black;
     font-family: 'S-CoreDream';
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 25%;
+    margin-right: 25%;
     text-align: center;
     font-size: 25px;
 
