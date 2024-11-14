@@ -17,5 +17,10 @@ Credits:
 - Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/
 - Clothes Hanger SFX: https://pixabay.com/sound-effects/moving-coat-hangers-in-an-metal-suport-33538/
 - Phone Vibration SFX: https://pixabay.com/sound-effects/phone-vibrating-183595/
+  
 - Preface BGM:
   - https://pixabay.com/music/modern-classical-melancholic-pianoclassy-255536/
+- Calm Neutral BGM:
+  - https://pixabay.com/ja/music/when-i-go-to-the-woods-255328/
+- Morning Vibes BGM:
+  - https://pixabay.com/music/modern-classical-blue-bird-hopeful-bright-piano-245606/ 
