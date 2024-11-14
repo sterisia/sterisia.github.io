@@ -5,22 +5,44 @@
         <title>ERROR</title>
         <link rel="stylesheet" href="styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     </head>
 
     <body class="starterBack">
+
+        <!-- SFX BLOCK -->
+        <div class="sounds" data-aos="fade">
+            <script>
+                const audio = new Audio("audio/error-sound.mp3")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: 'max',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+                })
+                audio.loop=true;
+            </script>
+        </div>
+        
+
         <div id="errorDiv">
             <h1><a id="errorText" href="intro.html">ERROR: 0x001x001</a></h1>
         </div>
 
-        <div class="errorDivs" data-aos="fade-up" data-aos-delay="500">
+        <div class="errorDivs" data-aos="fade-up" data-aos-delay="200">
             <p class="errorDivText">ERROR: 0x41x00z</p>
         </div>
 
-        <div class="errorDivs" data-aos="flip-right" data-aos-delay="800" style="background-color: blue; margin-left: 50%; margin-right: 5%;">
+        <div class="errorDivs" data-aos="flip-right" data-aos-delay="400" style="background-color: blue; margin-left: 50%; margin-right: 5%;">
             <p class="errorDivText">ERROR: 0x012x21</p>
         </div>
 
-        <div class="errorDivs" data-aos="flip-down" style="background-color: green; margin-left: 15%; margin-right: 56%;">
+        <div class="errorDivs" data-aos="flip-down" data-aos-delay="400" style="background-color: green; margin-left: 15%; margin-right: 56%;">
             <p class="errorDivText">ERROR: 0x02</p>
         </div>
 
