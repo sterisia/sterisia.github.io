@@ -4,9 +4,37 @@
         <title>Lyx's Lies</title>
         <link rel="stylesheet" href="styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     </head>
 
     <body class="starterBack">
+
+        <!-- SFX BLOCK -->
+        <div class="sounds" data-aos="fade">
+            <script>
+                const audio = new Audio("audio/preface-bgm.mp3")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: 'top center%',
+                    end: 'max',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+                    markers:true
+                })
+                audio.loop=true;
+            </script>
+        </div>
+
+
+        <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
+        <div class="classicText" style="margin-top: 25%; margin-bottom: 25%;">
+            <p>☾⋆⁺₊🎧✧Click anywhere for audio experience☾⋆⁺₊🎧✧</p>
+        </div>
+
         <div class="classicText" data-aos="fade" style="margin-top: 15%;">
             <p>POLARIS.</p>
         </div>
@@ -37,7 +65,7 @@
             <p>Now on to the part you've been waiting for...</p>
         </div>
 
-        <div class="classicText" data-aos="zoom-in" data-aos-delay="900" style="margin-top: 15%; margin-bottom: 15%;">
+        <div class="classicText" data-aos="zoom-in" data-aos-delay="800" style="margin-top: 15%; margin-bottom: 15%;">
             <p>Your Love Interests.</p>
         </div>
 
@@ -81,9 +109,10 @@
             <p style="font-style: italic;">"Ari... Please don't make me do this."</p>
         </div>
 
-        <div class="storyProgBun" style="margin-bottom: 15%;">
+        <div class="storyProgBun" style="margin-top: 15%; margin-bottom: 45%;">
             <a href="./chapters/Chapter One/chap1-1.html" class="storyProgText">Towards a New Life</a>
         </div>
+
 
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
