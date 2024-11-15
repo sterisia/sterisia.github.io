@@ -92,6 +92,12 @@ a{
     color:beige;
 }
 
+iframe{
+    margin-top: 1%;
+    width: 100%;
+    height: 750px;
+    border:none;
+}
 
 /* ID'S */
 /* =========================================================================================================================== */
@@ -182,6 +188,7 @@ a{
     font-size: 85px;
 }
 
+
 /* Footer Div */
 .footer{
     margin-top: 100px;
@@ -190,6 +197,23 @@ a{
 /* Footer Text Formatting */
 .footerIND{
     margin-left: 5%;
+}
+
+/* Glossary Title Formatting */
+.glossTitle{
+    color: azure;
+    font-family: 'STUNNING-Bd';
+    text-align: center;
+    font-size: 200%;
+}
+
+/* Glossary Entry Formatting */
+.glossEnt{
+    color: azure;
+    font-family: 'S-CoreDream';
+    margin-top: -2%;
+    margin-left: 5%;
+    font-size: 15px;
 }
 
 /* Glossary Note Text Formatting */
