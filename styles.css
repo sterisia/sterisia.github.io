@@ -96,10 +96,12 @@ a{
 /* ID'S */
 /* =========================================================================================================================== */
 /* Glossary Text Formatting */
-#a-words{
+#glossTxt{
     color: white;
-    margin-left: 50px;
     font-family: 'Noonnu';
+    font-size: 25px;
+    margin-left: 40%;
+    margin-right: 25%;
 }
 
 /* Main (Special) Title Formatting */
@@ -190,6 +192,12 @@ a{
     margin-left: 5%;
 }
 
+/* Glossary Note Text Formatting */
+.glossNteTxt{
+    margin-left: 5%;
+    font-size: 20px;
+    color:#DDA4A4;
+}
 
 /* Classic Text Formatting */
 .classicText{
