@@ -13,8 +13,8 @@ A 'just-for-fun' Choose Your Own Adventure-Esque HTML hell. Reads like a female-
   - By which I mean I started working on it as a means to stay awake at the library so I don't pass out of boredom
 
 **CREDITS:**
-- Error Sound: https://pixabay.com/sound-effects/error-warning-login-denied-132113/ 
-- Notification Sound : https://pixabay.com/sound-effects/new-notification-7-210334/
+- Error Sound: 
+- Notification Sound : 
 - Clothes Hanger SFX: https://pixabay.com/sound-effects/moving-coat-hangers-in-an-metal-suport-33538/
 - Phone Vibration SFX: https://pixabay.com/sound-effects/phone-vibrating-183595/
   
