@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="../../styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     </head>
 
@@ -330,8 +331,16 @@
             document.getElementById("datetime").innerHTML = datetime;
             </script>
 
-            <iframe id="page-embed" class="init" loading="lazy" src="../../glossary.html#protis" title="Glossary" tabindex="-1"
-            ></iframe>
+            <iframe id="page-embed" class="init" loading="lazy" src="../../glossary.html#protis" title="Glossary"></iframe>
+
+            <script>
+                $(document).ready(function(){
+                    $('#page-embed').on('load', function() { if ($(this).hasClass('init')) { $(this).removeClass('init').show(); } });
+                });
+
+            </script>
+            
+
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK -->
