@@ -330,10 +330,7 @@
             document.getElementById("datetime").innerHTML = datetime;
             </script>
 
-            <iframe id="page-embed" class="init" loading="lazy" sandbox="allow-same-origin allow-script" src="../../glossary.html#protis" title="Glossary"></iframe>
-            <script>
-                $('#page-embed').on('load', function() { if ($(this).hasClass('init')) { $(this).removeClass('init').show(); } });
-            </script>
+            <iframe id="page-embed" class="init" loading="lazy" sandbox="allow-same-origin allow-script" src="../../glossary.html#protis" title="Glossary" onload="this.style.display='inline'"></iframe>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK -->
