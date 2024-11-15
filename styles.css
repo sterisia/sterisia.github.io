@@ -96,6 +96,7 @@ iframe{
     margin-top: 1%;
     width: 100%;
     height: 750px;
+    min-height: 750px;
     border:none;
 }
 
