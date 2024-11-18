@@ -335,15 +335,21 @@
             <div id= glossAppScreen style="position: relative;     
                         height: 775px;">
 
-                <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe>
+                <!-- <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe> -->
 
-                <script>
-                    
-                </script>
+                <div id="iFrame1"></div>
 
+                <button class= center id="button1" onclick="openGloss(); this.style.display='none'">DICT</button>
+              
+              <script>
+                  function openGloss() {
+                      document.getElementById("iFrame1").innerHTML = "<iframe src='../../glossary.html#protis'></iframe>";
+                  }
+              </script>
+              
 
-                <button class="center" id="button1" 
-                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; document.getElementById('iFrame1').contentWindow.location.hash = 'glossAppScreen'; this.style.display = 'none'" >DICT</button>    
+                <!-- <button class="center" id="button1" 
+                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>     -->
             </div>
         </div>
 
