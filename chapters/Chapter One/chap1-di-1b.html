@@ -331,8 +331,15 @@
             document.getElementById("datetime").innerHTML = datetime;
             </script>
 
-            <iframe loading="lazy" src="../../glossary.html" title="Glossary"></iframe>
+            <!-- Phone Content -->
+            <div style="position: relative;">
 
+                <iframe id="iFrame1" loading="lazy" title="Glossary"></iframe>
+
+                <button class="center" id="button1" 
+                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>    
+
+            </div>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK -->
