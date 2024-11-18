@@ -338,12 +338,12 @@
                 <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe>
 
                 <script>
-                    document.getElementById("iFrame1").contentWindow.location.hash = "glossAppScreen";
+                    
                 </script>
 
 
                 <button class="center" id="button1" 
-                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>    
+                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; document.getElementById('iFrame1').contentWindow.location.hash = 'glossAppScreen'; this.style.display = 'none'" >DICT</button>    
             </div>
         </div>
 
