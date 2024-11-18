@@ -429,6 +429,11 @@ iframe{
     margin-right: 15px;
 }
 
+.fullPageSpacer{
+    color: transparent;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
 
 /* THE FORGOTTEN ONES
 /* =========================================================================================================================== */
