@@ -334,22 +334,19 @@
             <!-- Phone Content -->
             <div id= glossAppScreen style="position: relative;     
                         height: 775px;">
-
-                <!-- <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe> -->
+                
+                <div style="background-color:black; width:100%; height: 750px; margin-top: 1%; margin-bottom: 1%;">
+                    <p>&nbsp;</p>
+                </div>
 
                 <div id="iFrame1"></div>
 
                 <button class= center id="button1" onclick="openGloss(); this.style.display='none'">DICT</button>
-              
-              <script>
-                  function openGloss() {
-                      document.getElementById("iFrame1").innerHTML = "<iframe src='../../glossary.html#protis'></iframe>";
-                  }
-              </script>
-              
-
-                <!-- <button class="center" id="button1" 
-                        onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>     -->
+                <script>
+                    function openGloss() {
+                        document.getElementById("iFrame1").innerHTML = "<iframe src='../../glossary.html#protis'></iframe>";
+                    }
+                </script>
             </div>
         </div>
 
