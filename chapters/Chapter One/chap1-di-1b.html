@@ -334,7 +334,12 @@
             <!-- Phone Content -->
             <div style="position: relative;">
 
+                <script>
+                    iframe1.setAttribute("onload","scroll(0,0);");
+                </script>
+
                 <iframe id="iFrame1" loading="lazy" title="Glossary"></iframe>
+
 
                 <button class="center" id="button1" 
                         onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>    
