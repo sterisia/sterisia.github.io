@@ -332,10 +332,15 @@
             </script>
 
             <!-- Phone Content -->
-            <div style="position: relative;     
+            <div id= glossAppScreen style="position: relative;     
                         height: 775px;">
-                        
+
                 <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe>
+
+                <script>
+                    document.getElementById("iFrame1").contentWindow.location.hash = "glossAppScreen";
+                </script>
+
 
                 <button class="center" id="button1" 
                         onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>    
