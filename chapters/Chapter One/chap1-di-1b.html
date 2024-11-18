@@ -332,12 +332,10 @@
             </script>
 
             <!-- Phone Content -->
-            <div style="position: relative;">
-                <iframe id="iFrame1" loading="lazy" title="Glossary"></iframe>
-
-                <script>
-                    iframe1.setAttribute("onload","scroll(0,0);");
-                </script>
+            <div style="position: relative;     
+                        height: 775px;">
+                        
+                <iframe id="iFrame1" loading="lazy" title="Glossary" style="position: absolute;"></iframe>
 
                 <button class="center" id="button1" 
                         onClick="document.getElementById('iFrame1').src = '../../glossary.html#protis'; this.style.display = 'none'" >DICT</button>    
