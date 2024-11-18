@@ -156,6 +156,18 @@ iframe{
 }
 
 
+#button1{
+    background-color: #E8D9E0;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    height: 50px;
+    width: 50px;
+    font-family: 'CookieRun';
+    right:0;
+  }
+
+
 /* Special Stuff For Scrolls */
 ::-webkit-scrollbar {
     width: 0;  /* Remove scrollbar space */
@@ -165,6 +177,18 @@ iframe{
 
 /* CLASSES */
 /* =========================================================================================================================== */
+
+/* Centering Items...??? */
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+
 /* Starter Background */
 .starterBack{
     background-color: black;
