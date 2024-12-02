@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHAP 1</title>
+        <link rel="stylesheet" href="../styles.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="../counters.js" ></script>
+    </head>
+
+
+    <body class="storyBackTwo">
+
+        <!-- Story Divergence 'Buttons' -->
+         <!-- NECESSARY COMPONENT: First Option -->
+         <div class="storyProgBun" style="margin-top: 10%;">
+            <a onclick="alphCharPlus(5)" href="testResult.html" class="storyProgText">Alpheratz (+5)</a>
+        </div>
+
+        <!-- NECESSARY COMPONENT: Second Option -->
+        <div class="storyProgBun" style="margin-bottom: 15%;">
+            <a onclick="alphCharPlus(10)" href="testResult.html" class="storyProgText">Alpheratz (+10)</a>
+        </div>
+
+
+        <p><button class="storyProgBun" onclick="alphCharPlus(5)" type="button">Alpheratz (+5)</button></p>
+        <p><button class="storyProgBun" onclick="alphCharPlus(10)" type="button">Alpheratz (+10)</button></p>
+
+        <p><button class="storyProgBun" onclick="ansCharPlus(2)" type="button">Anser (+2)</button></p>
+        <p><button class="storyProgBun" onclick="ansCharPlus(4)" type="button">Anser (+4)</button></p>
+
+        <p><button class="storyProgBun" onclick="casCharPlus(3)" type="button">Castor (+3)</button></p>
+        <p><button class="storyProgBun" onclick="casCharPlus(6)" type="button">Castor (+6)</button></p>
+
+        <p><button class="storyProgBun" onclick="solCharPlus(4)" type="button">Sol (+4)</button></p>
+        <p><button class="storyProgBun" onclick="solCharPlus(8)" type="button">Sol (+8)</button></p>
+
+        <p><button class="storyProgBun" onclick="vegCharPlus(6)" type="button">Vega (+6)</button></p>
+        <p><button class="storyProgBun" onclick="vegCharPlus(12)" type="button">Vega (+12)</button></p>
+        
+        <p> <a href="testResult.html">RESULTS</a> </p>
+
+</html>
