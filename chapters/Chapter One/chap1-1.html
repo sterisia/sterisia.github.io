@@ -4,6 +4,8 @@
         <title>CHAP 1</title>
         <link rel="stylesheet" href="../../styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="../../counters.js" ></script>
+
     </head>
 
     <body class="storyBack">
@@ -54,13 +56,21 @@
             <p>Remembering that it emitted a sound, you couldn't help the spark of curiosity.</p>
         </div>
 
+
+
+        <!-- Story Divergence 'Buttons' -->
+
+        <!-- NECESSARY COMPONENT: First Option -->
         <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
-            <a class="storyProgText" href="chap1-di-1a.html">Take a Closer Look</a>
+            <a onclick="vegCharPlus(5)" class="storyProgText" href="chap1-di-1a.html">Take a Closer Look</a>
         </div>
 
+        <!-- NECESSARY COMPONENT: Second Option -->
         <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
-            <a class="storyProgText" href="chap1-di-1b.html">Ignore It for Now</a>
+            <a onclick="vegCharPlus(-2)" class="storyProgText" href="chap1-di-1b.html">Ignore It for Now</a>
         </div>
+
+
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>

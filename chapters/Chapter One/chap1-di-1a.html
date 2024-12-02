@@ -6,6 +6,7 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="../../counters.js" ></script>
     </head>
 
     <body class="storyBackTwo">
@@ -379,15 +380,19 @@
 
 
         <!-- Story Divergence Point -->
+
+        <!-- NECESSARY COMPONENT: First Option -->
         <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
-            <a href="chap1-di-1a2a.html" class="storyProgText">"I actually don't remember anything."</a>
+            <a onclick="vegCharPlus(5)" href="../../testlabs/testResult.html" class="storyProgText">"I actually don't remember anything."</a>
         </div>
 
+        <!-- NECESSARY COMPONENT: Second Option -->
         <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
-            <a href="chap1-di-1a2b.html" class="storyProgText">"I told you I'm fine..."</a>
+            <a onclick="vegCharPlus(-5)" href="../../testlabs/testResult.html" class="storyProgText">"I told you I'm fine..."</a>
         </div>
 
-        
+
+
         <!-- Story Block: Extra Scroll Space (ft. empty) -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 50%;">
             <p>&nbsp;</p>
