@@ -4,11 +4,31 @@
         <title>CHAP 1</title>
         <link rel="stylesheet" href="../../styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
         <script src="../../counters.js" ></script>
-
     </head>
 
     <body class="storyBack">
+
+        <!-- OPTIONAL COMPONENT: BGM -->
+        <div class="sounds">
+            <script>
+                const audio = new Audio("../../audio/sadCalm-bgm.mp3")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: "max",
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+                })
+                audio.loop=true;
+            </script>        
+        </div>
+        
 
         <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
         <div class="classicText" style="margin-top: 25%; margin-bottom: 25%;">
@@ -30,21 +50,20 @@
             <p>What was it again? Polaris?</p>
         </div>
 
-        <div class="sounds" data-aos="fade" style="margin-top: 15%;">
+        <!-- SFX BLOCK -->
+        <div class="soundsTwo" data-aos="fade" style="margin-top: 15%;">
             <p class="classicText">♫♫♫</p>
-            <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
             <script>
-                const audio = new Audio("../../audio/noti-sound.mp3")
+                const audio2 = new Audio("../../audio/noti-sound.mp3")
                 ScrollTrigger.create({
-                    trigger: '.sounds',
+                    trigger: '.soundsTwo',
                     start: 'top center',
                     end: '+=100%',
 
-                    onEnter() {audio.play()},
-                    onLeave() {audio.pause()},
-                    onEnterBack() {audio.play()},
-                    onLeaveBack() {audio.pause()},
+                    onEnter() {audio2.play()},
+                    onLeave() {audio2.pause()},
+                    onEnterBack() {audio2.play()},
+                    onLeaveBack() {audio2.pause()},
                 })
             </script>
         </div>
@@ -70,6 +89,11 @@
             <a onclick="vegCharPlus(-2)" class="storyProgText" href="chap1-di-1b.html">Ignore It for Now</a>
         </div>
 
+
+        <!-- Story Block: Extra Scroll Space (ft. empty) -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 50%;">
+            <p>&nbsp;</p>
+        </div>
 
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
