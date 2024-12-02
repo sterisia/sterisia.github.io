@@ -23,4 +23,6 @@ A 'just-for-fun' Choose Your Own Adventure-Esque HTML hell. Reads like a female-
 - Calm Neutral BGM:
   - https://pixabay.com/ja/music/when-i-go-to-the-woods-255328/
 - Morning Vibes BGM:
-  - https://pixabay.com/music/modern-classical-blue-bird-hopeful-bright-piano-245606/ 
+  - https://pixabay.com/music/modern-classical-blue-bird-hopeful-bright-piano-245606/
+- Calm Sad BGM:
+   - https://pixabay.com/music/solo-piano-phantasm-calm-piano-201588/
