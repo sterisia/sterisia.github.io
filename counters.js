@@ -6,18 +6,10 @@ var solCharCt = localStorage.getItem("solCharClick");
 var vegCharCt = localStorage.getItem("vegCharClick");
 
 
-//FAVORABILITY COUNTERS------------------------------------------------------------------------------------------
-var alphFavCt = localStorage.getItem("alphFavClick");
-var ansFavCt = localStorage.getItem("ansFavClick");
-var casFavCt = localStorage.getItem("casFavClick");
-var solFavCt = localStorage.getItem("solFavClick");
-var vegFavCt = localStorage.getItem("vegFavClick");
-
-
 // ADDING POINTS TO ALPHERATZ ***CHARACTER ENCOUNTER*** COUNTER
 function alphCharPlus(points){
     if (localStorage.alphCharCt){
-        localStorage.alphCharCt = Number(localStorage.alphCharCt) + parseInt(points);
+        localStorage.alphCharCt = z(localStorage.alphCharCt) + parseInt(points);
     } else {
         localStorage.alphCharCt = parseInt(points);
     }
