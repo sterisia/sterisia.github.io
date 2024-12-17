@@ -9,7 +9,7 @@ var vegCharCt = localStorage.getItem("vegCharClick");
 // ADDING POINTS TO ALPHERATZ ***CHARACTER ENCOUNTER*** COUNTER
 function alphCharPlus(points){
     if (localStorage.alphCharCt){
-        localStorage.alphCharCt = z(localStorage.alphCharCt) + parseInt(points);
+        localStorage.alphCharCt = Number(localStorage.alphCharCt) + parseInt(points);
     } else {
         localStorage.alphCharCt = parseInt(points);
     }
