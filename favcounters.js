@@ -9,7 +9,7 @@ var vegFavCt = localStorage.getItem("vegFavClick");
 // ADDING POINTS TO ALPHERATZ ***FAVORABILITY*** COUNTER
 function alphFavPlus(points){
     if (localStorage.alphFavCt){
-        localStorage.alphFavCt = z(localStorage.alphFavCt) + parseInt(points);
+        localStorage.alphFavCt = Number(localStorage.alphFavCt) + parseInt(points);
     } else {
         localStorage.alphFavCt = parseInt(points);
     }
