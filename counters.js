@@ -1,9 +1,9 @@
-// CHARACTER ENCOUNTER COUNTERS----------------------------------------------------------------------------------
-var alphCharCt = localStorage.getItem("alphCharClick");
-var ansCharCt = localStorage.getItem("ansCharClick");
-var casCharCt = localStorage.getItem("casCharClick");
-var solCharCt = localStorage.getItem("solCharClick");
-var vegCharCt = localStorage.getItem("vegCharClick");
+// // CHARACTER ENCOUNTER COUNTERS----------------------------------------------------------------------------------
+// var alphCharCt = localStorage.getItem("alphCharClick");
+// var ansCharCt = localStorage.getItem("ansCharClick");
+// var casCharCt = localStorage.getItem("casCharClick");
+// var solCharCt = localStorage.getItem("solCharClick");
+// var vegCharCt = localStorage.getItem("vegCharClick");
 
 
 // ADDING POINTS TO ALPHERATZ ***CHARACTER ENCOUNTER*** COUNTER
@@ -17,7 +17,7 @@ function alphCharPlus(points){
 
 // ADDING POINTS TO ANSER ***CHARACTER ENCOUNTER*** COUNTER
 function ansCharPlus(points){
-    if (localStorage.ansCharCt){
+    if (localStorage.ansCharCt){ 
         localStorage.ansCharCt = Number(localStorage.ansCharCt) + parseInt(points);
     } else {
         localStorage.ansCharCt = parseInt(points);
@@ -55,3 +55,32 @@ function vegCharPlus(points){
 }
 
 
+// AVOIDING NULL VALUES
+function babyProof(){
+    if(localStorage.alphCharCt){
+    } else {
+        localStorage.alphCharCt = 0;
+    }
+    if(localStorage.ansCharCt){
+    } else {
+        localStorage.ansCharCt = 0;
+    }
+    if(localStorage.casCharCt){
+    } else {
+        localStorage.casCharCt = 0;
+    }
+    if(localStorage.solCharCt){
+    } else {
+        localStorage.solCharCt = 0;
+    }
+    if(localStorage.vegCharCt){
+    } else {
+        localStorage.vegCharCt = 0;
+    }
+}
+
+// SUMMARY
+function encountSummary(){
+    babyProof();
+    return Math.max(Number(localStorage.alphCharCt), Number(localStorage.ansCharCt), Number(localStorage.casCharCt), Number(localStorage.solCharCt), Number(localStorage.vegCharCt));
+}
