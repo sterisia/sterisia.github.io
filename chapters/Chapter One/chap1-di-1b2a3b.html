@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>CHAP #</title>
-        <link rel="stylesheet" href="./../styles.css"/>
+        <link rel="stylesheet" href="../../styles.css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -15,11 +15,11 @@
         <!-- OPTIONAL COMPONENT: BGM -->
         <div class="sounds">
             <script>
-                const audio = new Audio("../audio/calmNeutral-bgm.aac")
+                const audio = new Audio("https://cdn.pixabay.com/audio/2024/09/24/audio_f66c0194b5.mp3")
                 ScrollTrigger.create({
                     trigger: '.sounds',
                     start: '+=100%',
-                    end: '+=500%',
+                    end: 'max',
 
                     onEnter() {audio.play()},
                     onLeave() {audio.pause()},
@@ -32,7 +32,7 @@
             </script>        
         </div>
         <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
-        <div class="classicText" style="margin-top: 25%; margin-bottom: 25%;">
+        <div class="classicTextBl" style="margin-top: 25%; margin-bottom: 25%;">
             <p>☾⋆⁺₊🎧✧Click anywhere for audio experience☾⋆⁺₊🎧✧</p>
         </div>
 
@@ -65,24 +65,6 @@
         </div>
 
 
-        <!-- SFX BLOCK -->
-        <div class="soundsTwo" data-aos="fade" style="margin-top: 15%;">
-            <p class="classicTextBl">♫♫♫</p>
-            <script>
-                const audio2 = new Audio("../audio/noti-sound.mp3")
-                ScrollTrigger.create({
-                    trigger: '.soundsTwo',
-                    start: 'top center',
-                    end: '+=100%',
-
-                    onEnter() {audio2.play()},
-                    onLeave() {audio2.pause()},
-                    onEnterBack() {audio2.play()},
-                    onLeaveBack() {audio2.pause()},
-                })
-
-            </script>
-        </div>
         
         <!-- ********************************************************************************************  -->
         <!-- NECESSARY COMPONENT: Animation Scroll Script -->
