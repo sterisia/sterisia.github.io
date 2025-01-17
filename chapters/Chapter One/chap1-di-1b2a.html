@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHAP 1</title>
+        <link rel="stylesheet" href="../../styles.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="../../counters.js" ></script>
+        <script src="../../favcounters.js"></script>
+    </head>
+
+    <body class="storyBack">
+
+        <!-- OPTIONAL COMPONENT: BGM -->
+        <div class="sounds">
+            <script>
+                const audio = new Audio("../../audio/calmNeutral-bgm.mp3")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: 'max',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+
+                    // markers:true
+                })
+                audio.loop=true;
+            </script>        
+
+        </div>
+        <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
+        <div class="classicText" style="margin-top: 25%; margin-bottom: 25%;">
+            <p>☾⋆⁺₊🎧✧Click anywhere for audio experience☾⋆⁺₊🎧✧</p>
+        </div>
+
+
+        <!-- ********************************************************************************************  -->
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p><em>"Thank you for the offer, but I think I would prefer to go on my own today."</em></p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: SCROLL REMINDER -->
+        <div class="classicText" data-aos="fade" data-aos-delay="800" style="margin-bottom: 25%;">
+            <p>↓</p>
+        </div>
+
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>Your piloter becomes visibly upset as he processes your answer, his gentle eyes growing a touch concerned.</p>
+            <p>"But miss, it hasn't been that long since your accident... Are you sure? And the weather today is not optimal. It is supposed to rain in the evening, according to the morning forecast. I really urge you to reconsider. It's my job to take you places, after all..."</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>You stare at him blankly. Accident? What accident? You recalled your earlier conversation with Xihe as well, and it became apparent to you that something must have happened to Polaris before you woke up here in this strange place. But the truth of the matter was that, disregarding your obvious confusion, you physically felt perfectly fine.</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>The old man sighed as he observed your reaction, eventually taking a step back with a slight bow.</p>
+            <p>"If you insist, I cannot change your mind. But please do consider taking an umbrella. Being out under the rain is simply begging for sickness, and I'm sure you do not want to be bed-ridden for much longer."</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>You nod and he retreats down the hall. For a moment, you wonder if you should take a hold of him again and ask for directions, but you figured that he would not take to that kindly and would most likely insist you ride with him again. So you retreat back to your new room, in search of an umbrella, before you make a decision on commute. </p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>✮ ⋆ ˚｡𖦹 ⋆｡°✩</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>After fumbling around on your sterisia, you found, with great relief, an app that detailed methods of getting to 'Lyx Station'. Your eyebrows knit together in contemplation.</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>At the moment, you had two options: either walk 40 minutes to potentially see and explore the neighborhood, or choose to take a 40 minute bus -or Aetherinic Transport (AT), as the locals seem to call it- ride to the station. </p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK CLASSIC WHITE -->
+        <div class="classicText" data-aos="fade" style="margin-top: 25%;">
+            <p>Both methods took roughly the same amount of time, and you would arrive just by the 12th hour. Having made up your mind, you decide to slide off your bed and head towards the front gate. You were going to:</p>
+        </div>
+
+
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- Story Divergence 'Buttons' -->
+         <!-- NECESSARY COMPONENT: First Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a onclick="alphCharPlus(1); alphFavPlus(7)" href="chap1-di-1b2a3a.html" class="storyProgText">CHOOSE TO WALK</a>
+        </div>
+
+        <!-- NECESSARY COMPONENT: Second Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
+            <a onclick="casCharPlus(1); casFavPlus(6)" href="chap1-di-1b2a3b.html" class="storyProgText">CHOOSE TO AT (BUS)</a>
+        </div>
+
+
+
+        <!-- Story Block: Extra Scroll Space (ft. empty) -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 50%;">
+            <p>&nbsp;</p>
+        </div>
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- NECESSARY COMPONENT: Animation Scroll Script -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+    </body>
+</html>

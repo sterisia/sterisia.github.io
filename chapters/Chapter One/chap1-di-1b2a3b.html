@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CHAP #</title>
+        <link rel="stylesheet" href="./../styles.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+        <script src="../../counters.js" ></script>
+        <script src="../../favcounters.js"></script>"
+    </head>
+
+    <body class="storyBackTwo">
+
+        <!-- OPTIONAL COMPONENT: BGM -->
+        <div class="sounds">
+            <script>
+                const audio = new Audio("../audio/calmNeutral-bgm.aac")
+                ScrollTrigger.create({
+                    trigger: '.sounds',
+                    start: '+=100%',
+                    end: '+=500%',
+
+                    onEnter() {audio.play()},
+                    onLeave() {audio.pause()},
+                    onEnterBack() {audio.play()},
+                    onLeaveBack() {audio.pause()},
+
+                    markers:true
+                })
+                audio.loop=true;
+            </script>        
+        </div>
+        <!-- OPTIONAL COMPONENT: BGM AWARENESS -->
+        <div class="classicText" style="margin-top: 25%; margin-bottom: 25%;">
+            <p>☾⋆⁺₊🎧✧Click anywhere for audio experience☾⋆⁺₊🎧✧</p>
+        </div>
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>TEXT</p>
+        </div>
+
+
+        <!-- NECESSARY COMPONENT: SCROLL REMINDER -->
+        <div class="classicTextBl" data-aos="fade" data-aos-delay="800" style="margin-bottom: 25%;">
+            <p>↓</p>
+        </div>
+
+
+
+
+        <!-- ********************************************************************************************  -->
+        <!-- Story Divergence 'Buttons' -->
+         <!-- NECESSARY COMPONENT: First Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-top: 10%;">
+            <a class="storyProgText">OPTION</a>
+        </div>
+
+        <!-- NECESSARY COMPONENT: Second Option -->
+        <div class="storyProgBun" data-aos="zoom-in" style="margin-bottom: 15%;">
+            <a class="storyProgText">OPTION</a>
+        </div>
+
+
+        <!-- SFX BLOCK -->
+        <div class="soundsTwo" data-aos="fade" style="margin-top: 15%;">
+            <p class="classicTextBl">♫♫♫</p>
+            <script>
+                const audio2 = new Audio("../audio/noti-sound.mp3")
+                ScrollTrigger.create({
+                    trigger: '.soundsTwo',
+                    start: 'top center',
+                    end: '+=100%',
+
+                    onEnter() {audio2.play()},
+                    onLeave() {audio2.pause()},
+                    onEnterBack() {audio2.play()},
+                    onLeaveBack() {audio2.pause()},
+                })
+
+            </script>
+        </div>
+        
+        <!-- ********************************************************************************************  -->
+        <!-- NECESSARY COMPONENT: Animation Scroll Script -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+    </body>
+</html>
