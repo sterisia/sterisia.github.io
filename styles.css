@@ -5,6 +5,7 @@ GALAXY THEME */
     --darkpur: #9999C7;
     --lipur: #C8BDE0;
     --palepurpi: #E8D9E0;
+    --purpblue:#c8ceee;
     --offwhi: #FCFFF7;
     --pi: #DDA4A4;
     --phoneblue: #daeaf6;
@@ -157,16 +158,6 @@ iframe{
 }
 
 
-#button1{
-    background-color: #E8D9E0;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: black;
-    height: 50px;
-    width: 50px;
-    font-family: 'CookieRun';
-    right:0;
-  }
 
 
 /* Special Stuff For Scrolls */
@@ -203,8 +194,13 @@ iframe{
     background-color: #C8BDE0;
 }
 
+.storyBackThree{
+    background-color: #E8D9E0;
+}
 
-
+.storyBackFour{
+    background-color: var(--purpblue);
+}
 
 /* Normal Title */
 .title{
