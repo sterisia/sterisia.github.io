@@ -197,6 +197,10 @@ iframe{
     background-color: black;
 }
 
+.storyBackGrad{
+    background-image: linear-gradient(to top left, var(--darkpur), var(--purpblue), var(--lipur),var(--palepurpi), var(--pi));
+}
+
 .storyBack{
     background-color: #9999C7;
 }
