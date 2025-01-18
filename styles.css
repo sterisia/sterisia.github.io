@@ -157,6 +157,17 @@ iframe{
     text-decoration: none;
 }
 
+/* THIS IS THE DICTIONARY APP BUTTON */
+#button1{
+    background-color: #E8D9E0;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    height: 50px;
+    width: 50px;
+    font-family: 'CookieRun';
+    right:0;
+}
 
 
 
