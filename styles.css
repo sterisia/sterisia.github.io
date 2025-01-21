@@ -309,6 +309,20 @@ iframe{
     text-decoration: none;
 }
 
+.storyProgBunTest{
+    width: fit-content;
+    background: #DDA4A4;
+    border-radius: 35px;
+    border-style: ridge;
+    text-align: center;
+    padding: 20px;
+    margin: 2%;
+    margin-left:auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+
 /* Story Progression Button Text Formatting */
 .storyProgText{
     text-align: center;
