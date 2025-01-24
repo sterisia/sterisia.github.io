@@ -86,13 +86,65 @@
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>You exhaled a sigh of relief as you heeded his advice and took a seat far in the back, away from your unpleasant piloter. Luckily, the AT wasn't so crowded, so you had plenty of leg room and seat options to choose from. As you glanced out the window to see the passing blur of your neighborhood, you shuddered. What would have happened if it turned out you had no way of paying? Of course, you weren't left without options, since you could have also always just sought out your personal piloter and tell him you changed your mind, but since you were already on the AT, it would have been cumbersome to have to change plans midway.</p>
+            <p>You exhaled a sigh of relief as you heeded his advice and took a seat far in the back, away from your unpleasant piloter. Luckily, the AT wasn't so crowded, so you had plenty of leg room and seat options to choose from.</p>
+            
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>As you glanced out the window to see the passing blur of your neighborhood, you shuddered. What would have happened if it turned out you had no way of paying? Of course, you weren't left without options, since you could have also always just sought out your personal piloter and tell him you changed your mind, but since you were already on the AT, it would have been cumbersome to have to change plans midway.</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="soundsTwo classicTextBl" data-aos="fade" style="margin-top: 25%;">
             <p>Noticing a window handle, you experimented a bit, trying to figure out how to open the window a sliver. As you had expected, though the handle was solid, it felt subtly warm, like your hand just barely happened to not phase right through it. With minimal effort, you pulled it open to enjoy the breeze. It was raining out, like how your personal piloter had mentioned it might, but you didn't mind.</p>
         </div>
+
+        <!-- COMPLICATED SFX BLOCK -->
+        <div data-aos="fade" style="margin-top: 15%;">
+            <p class="classicTextBl">🌧‧₊˚ ☁️⋅𓂃 ࣪ ִֶָ☾.</p>
+            <script>
+                const audio2 = new Audio("https://cdn.pixabay.com/audio/2022/01/18/audio_531f5d99db.mp3")
+                ScrollTrigger.create({
+                    trigger: '.soundsTwo', //THIS IS THE DIV THAT TRIGGERS THE START OF THE MUSIC
+                    start: 'top center', // YOU CAN LEAVE START AND END AS IS
+                    end: 'center center',
+                    endTrigger: '.rainEnd', //THIS IS THE DIV THAT TRIGGERS THE END OF THE MUSIC
+                    onEnter() {audio2.play()},
+                    onLeave() {audio2.pause()},
+                    onEnterBack() {audio2.play()},
+                    onLeaveBack() {audio2.pause()},
+                    
+                    // markers:true // ENABLE ONLY WHEN TESTING!!
+                    
+                })
+                audio2.loop=true;
+            </script>
+
+            <!-- Second related ScrollTrigger to fade out volume -->
+            <script>
+                ScrollTrigger.create({
+                    trigger: '.soundsTwo',
+                    start: 'top center',
+                    end: 'center center',
+                    endTrigger: ".fadeIn",
+                    onUpdate: function(self){
+                        const volume = 0 + 1.5*(self.progress)
+                        console.log( volume )    
+                        if (volume > (audio.volume*0.65)){
+                            audio2.volume = audio.volume*0.65
+                        } else {
+                            audio2.volume = volume
+                        }
+                        
+                    },
+                    // markers: true
+                });
+            </script>
+
+        </div>
+
+        
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
@@ -106,7 +158,7 @@
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
-        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+        <div class="classicTextBl fadeIn" data-aos="fade" style="margin-top: 25%;">
             <p>... What?</p>
         </div>
 
@@ -118,26 +170,87 @@
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>The one that was seated right beside you exuded a somewhat arrogant demeanour, a teasing grin pulling the left corner of his lips just slightly as he looked at you with a frustratingly charming pair of eyes.</p>
-            <p>"How's the noggin doing? I mean, it's not like you ever had much in there, but that was quite the hit you took. What, concussion? Heh. You're actually stupid for not seeing that coming."</p>
+            <p>The one that was seated right beside you exuded unadulterated confidence, a teasing grin pulling the left corner of his lips just slightly as he looked at you with a frustratingly charming pair of eyes. In a brief moment, his gaze drifted towards the top of your head in a subconscious sort of manner, though they returned to yours soon after.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>He sighed as he leaned back in his seat.</p>
+            <p>"You seem awfully normal for someone that was dead to the world until recently. Everything okay?"</p>
+        </div>
+
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You were about to reassure him, like you had been doing to every new person you met, when his smirk took on a somewhat vexatious quality.</p>
+            
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"That pretty head of yours sure is unlucky. After all, it's stuck to your shoulders."</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p><em>"... Sorry, what?"</em></p>
+            <p>This man did not.</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>He struggled to stifle a laugh at your reaction, before composing himself remarkably well.</p>
+            <p>"No but seriously, is your head okay? You took quite the hit."</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p><em>"Perfectly fine, in fact, thank you."</em></p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>He nodded, his expression turning mockingly contemplative.</p>
+            <p>"I <strong>can</strong> see that. What I <strong>can't</strong> is believe how you actually managed to get a concussion. You really didn't see it coming?"</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You didn't know the exact semantics behind your concussion, so you didn't really know how to refute his jab. After all, in the end, the one who got the concussion was Polaris and not you, so there was a chance Polaris was a ditz.</p>
+            <p><em>"..."</em></p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>He observed your expression when you refused to retort, his confident smile diminishing just barely, as if deep in thought.</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
             <p>"And to think, when you stopped contacting me, I thought I had finally gotten rid of you."</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>His twin tossed a stern glare at his brother, before leaning forward to give you a bubbly smile that somewhat soothed your new-found irritation.</p>
-            <p>"Sorry, Polaris. You know how Castor is. Are you feeling better? We were really worried for you when we heard the news. Castor <em>included.</em>"</p>
-            <p>The twin gave a pointed look at his brother as he accented his name, raising an eyebrow subtly as if daring him to refute.</p>
+            <p>So much for thinking that the change in expression meant he would stop.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>Castor. So that's the pompous jerk's name. Talk about visual and internal mismatch. His face belonged on all sorts of media, but his personality belonged in the trash.</p>
+            <p>His twin tossed a stern glare at his brother, before leaning forward to give you a bubbly smile that somewhat soothed your new-found irritation.</p>
+            
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>"Sorry, Polaris. You know how Castor is. Are you feeling better? We were really worried for you when we heard the news. Castor <em>included.</em>"</p>
+
+            <p>The twin gave a pointed look at his brother as he accented his name, raising an eyebrow subtly as if daring him to refute.</p>
+        </div>
+
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>Castor. So that's the pompous jerk's name. Talk about irritating, in all sense of the word. After all, you could and would have disliked him in peace, if it weren't for his omnipotent face card.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
@@ -148,19 +261,23 @@
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>Castor initially seemed unfazed by his brother's remark, though he did sit up a bit in response to the unspoken scolding. He studied you intently for a moment before speaking up again.</p>
-            <p>"You sure you didn't forget anything? You know memory loss, both temporary and permanent, can result from concussions. With one as bad as yours was, I honestly wouldn't be surprised. Quick, what's two plus three?"</p>
+            <p>Castor initially seemed unfazed by his brother's remark, though he did sit up a bit in response to the unspoken scolding. He studied you intently for a moment, tilting his head swiftly to blow the bangs out of his eyes as he spoke up again.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>You honestly felt insulted. How would you not know that?</p>
+            <p>"You sure you didn't forget anything? You know memory loss, both temporary and permanent, can result from concussions. I honestly wouldn't be surprised, since yours was kinda serious. Quick, what's two plus three?"</p>
+        </div>
+
+        <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
+        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
+            <p>You honestly felt insulted as you stared back at the impish glint in his eyes. How would you not know that?</p>
             <p><em>"Five. I don't think memory loss works like that."</em></p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>He chuckled.</p>
+            <p>His smile turned a bit more genuine as he let slip a nice chuckle for once, seemingly more at ease at the fact you were willing to snap back.</p>
             <p>"Mm. Good. Seems like you've still got the attitude. Seriously though, are you even allowed to be out already? You're so careless sometimes, that I wouldn't be surprised if I found you in a ditch."</p>
         </div>
 
@@ -176,7 +293,7 @@
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>He glanced at you one last time, before turning to his brother, his attitude somewhat confusingly different as his seemingly-omnipresent smirk smoothed into one of gentle consideration.</p>
+            <p>He glanced at you one last time with a satisfied expression, before turning to his brother, his attitude somewhat confusingly different as his seemingly-omnipresent smirk smoothed into one of gentle consideration.</p>
             <p>"Pollux."</p>
         </div>
 
@@ -224,7 +341,7 @@
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
             <p>Castor scoffed and gave you an irritating smile.</p>
-            <p>"Why would Xihe even want you to help her out anyway? You must be so tired that you'd be as about useful as a pet rock."</p>
+            <p>"Why would Xihe even want you to help her out anyway? You're about as useful as a rock."</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
@@ -235,12 +352,12 @@
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
             <p>"If you say so."</p>
-            <p>He shrugged nonchalantly, smiling to himself at your reaction as he scrolled through his sterisia, occasionally showing some possible gift options to Pollux.</p>
+            <p>He shrugged nonchalantly as he turned away from you to Pollux, struggling to prevent the twitch at the corner of his mouth at your reaction while he scrolled through his sterisia, occasionally showing some possible gift options to his brother. He might as well have smiled, since his eyes said it all.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
         <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>The rest of the AT ride passed by in a similar fashion, and you earned the chance to get to know the twins better. You definitely liked Pollux better. But... if you really thought about it, Castor wasn't so bad either. His insults were all just packaging some sort of worry for you after all. Though you still despised that perfect smile of his.</p>
+            <p>The rest of the AT ride passed by in a similar fashion, and you earned the chance to get to know the twins better. You definitely liked Pollux better. But... if you really thought about it, Castor wasn't so bad either. His insults were all just worries and concerns in disguise. Though you still despised that perfect smile of his.</p>
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
@@ -249,9 +366,9 @@
         </div>
 
         <!-- NECESSARY COMPONENT: STORY BLOCK BLACK -->
-        <div class="classicTextBl" data-aos="fade" style="margin-top: 25%;">
-            <p>The three of you got ready to leave, and soon enough, the AT pulled to a final stop. You looked up somewhat startled as Castor pat your shoulder with surprising gentleness on his way off.</p>
-            <p>"Don't get yourself killed. I know that's one of your only talents, but I'd rather see you in class over a coffin next week. See you."</p>
+        <div class="classicTextBl rainEnd" data-aos="fade" style="margin-top: 25%;">
+            <p>The three of you got ready to leave, and soon enough, the AT pulled to a final stop. You looked up somewhat startled as Castor took ahold of your shoulder with surprising gentleness while passing by.</p>
+            <p>"Don't get yourself killed. I know that's one of your only talents, but next week, I better be seeing you in class and not in a coffin. See you."</p>
             <p>And he was off.</p>
         </div>
 
