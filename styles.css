@@ -117,8 +117,8 @@ iframe{
 #titlePage{
     color: azure;
     font-family: 'Shilla';
-    text-align: center;
-    font-size: 150px;
+    text-align-last: center;
+    font-size: 10vw;
 }
 
 /* Special Entry Button (PORTAL)  */
@@ -126,20 +126,22 @@ iframe{
     text-align: center;
     text-decoration: none;
     background-color: var(--darkpur);
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 15%;
     border-radius: 35px;
+    width: fit-content;
 }
 
 
 /* Special Entry Button (PORTAL) Text Formatting */
 #portalText{
-    font-size: 50px;
+    font-size: 2vw;
     text-align: center;
     text-decoration: none;
     font-family: 'S-CoreDream';
     color: black;
+    width: fit-content;
 }
 
 /* Error Div Formatting */
