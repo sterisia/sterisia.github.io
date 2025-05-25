@@ -72,6 +72,42 @@
                 background-color: #E8D9E0;
             }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script>
+            const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ha2Rxa3l4c3phdnp3bWZvbGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNDIxNTcsImV4cCI6MjA2MzcxODE1N30.P-9C4DxK-TxUhBazAcRLD-LmsbaawLH6LoCeTphj6ys');
+
+            async function deleteData() {
+                localStorage.clear(); // For older versions
+
+                const { data: { user }, error } = await client.auth.getUser();
+                if (error || !user) {
+                    alert("You're not logged in — nothing to reset.");
+                    return;
+                }
+
+                const resetFields = {
+                    alph_enc: 0, alph_fav: 0,
+                    ans_enc: 0, ans_fav: 0,
+                    cas_enc: 0, cas_fav: 0,
+                    sol_enc: 0, sol_fav: 0,
+                    veg_enc: 0, veg_fav: 0
+                };
+
+                const { error: updateError } = await client
+                    .from("user_progress")
+                    .update(resetFields)
+                    .eq("user_id", user.id);
+
+                if (updateError) {
+                    console.error("❌ Failed to reset Supabase progress:", updateError.message);
+                    alert("There was a problem resetting your cloud data.");
+                    return;
+                }
+
+                alert("✅ All progress has been reset!");
+            }
+
+        </script>
     </head>
     <body>
 
@@ -81,13 +117,7 @@
 
         <div style="padding: 5%; text-align: center;">
             <!-- Delete Data Button -->
-            <button onclick="deleteData()" type="button">DELETE DATA</button>
-            <script>
-                deleteData();
-                function deleteData(){
-                    localStorage.clear();
-                }
-            </script>        
+            <button onclick="deleteData()">DELETE DATA</button>
             <p></p>
         </div>
         
