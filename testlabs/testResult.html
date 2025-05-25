@@ -9,6 +9,8 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
         <script src="../counters.js" ></script>
         <script src="../favcounters.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     </head>
 
     <body class="storyBackGrad">
@@ -21,20 +23,23 @@
             <p>Your Alpheratz Favorability Count: <span style="color:darkslateblue" class="classicText" id="alphFavs"></span></p>
 
             <script>
-                if(localStorage.alphCharCt){
-                    document.getElementById("alphCounts").innerHTML = localStorage.alphCharCt;
-                } else {
-                    document.getElementById("alphCounts").innerHTML = 0;
-                }
+                document.getElementById("alphCounts").textContent = window.progress["alph_enc"];
+                document.getElementById("alphFavs").textContent = window.progress["alph_fav"];
+                // if(localStorage.alphCharCt){
+
+                //     document.getElementById("alphCounts").innerHTML = localStorage.alphCharCt;
+                // } else {
+                //     document.getElementById("alphCounts").innerHTML = 0;
+                // }
             </script>
 
-            <script>
+            <!-- <script>
                 if(localStorage.alphFavCt){
                     document.getElementById("alphFavs").innerHTML = localStorage.alphFavCt;
                 } else {
                     document.getElementById("alphFavs").innerHTML = 0;
                 }
-            </script>
+            </script> -->
         </div>
 
         <!-- Empty Space -->
@@ -283,6 +288,7 @@
         </div>
 
         
+        <script src="supabase-auth.js"></script>
 
     </body>
 </html>

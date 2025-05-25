@@ -10,37 +10,41 @@
         <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
         <script src="../counters.js" ></script>
         <script src="../favcounters.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     </head>
 
     <body class="storyBackTwo">
 
-                <!-- Story Divergence 'Buttons' -->
-         <!-- NECESSARY COMPONENT: First Option -->
-         <div class="storyProgBun" style="margin-top: 10%;">
-            <a onclick="alphCharPlus(1); alphFavPlus(5)" href="test2.html" class="storyProgText">Alpheratz +5</a>
+
+        <!-- Alph -->
+        <div class="storyProgBun" style="margin-top: 10%;">
+            <!-- <a onclick="alphCharPlus(1); alphFavPlus(5)" href="test2.html" class="storyProgText">Alpheratz +5</a> -->
+            <a onclick="updateCounter('alph', 'enc', 1); updateCounter('alph', 'fav', 5)" href="test2.html" class="storyProgText">Alpheratz +5</a>
         </div>
 
-        <!-- NECESSARY COMPONENT: Second Option -->
+        <!-- Ans -->
         <div class="storyProgBun" >
             <a onclick="ansCharPlus(1); ansFavPlus(5)" href="test2.html" class="storyProgText">Anser +5</a>
         </div>
 
+        <!-- Cas -->
          <div class="storyProgBun" >
             <a onclick="casCharPlus(1); casFavPlus(5)" href="test2.html" class="storyProgText">Castor +5</a>
         </div>
 
-        <!-- NECESSARY COMPONENT: Second Option -->
+        <!-- Sol -->
         <div class="storyProgBun">
             <a onclick="solCharPlus(1); solFavPlus(5)" href="test2.html" class="storyProgText">Sol +5</a>
         </div>
 
+        <!-- Veg -->
         <div class="storyProgBun" >
             <a onclick="vegCharPlus(1); vegFavPlus(5)" href="test2.html" class="storyProgText">Vega +5</a>
         </div>
 
         <p> <a href="test2.html">Next Page</a> </p>
         
-            
+        <script src="supabase-auth.js"></script>
 
     </body>
 
