@@ -34,30 +34,53 @@ async function logout() {
 // -------------------- GAME PROGRESS --------------------
 
 async function loadUserProgress() {
-  const { data: { user } } = await client.auth.getUser();
+  console.log("🔄 loadUserProgress() called");
+
+  // Get current user
+  const { data: { user }, error: userErr } = await client.auth.getUser();
+  if (userErr) {
+    console.error("⛔ Auth error:", userErr.message);
+    return;
+  }
   if (!user) {
+    console.warn("⛔ No user found, redirecting...");
     redirectToLogin();
     return;
   }
 
-  const { data, error } = await supabase
+  console.log("✅ Logged-in user ID:", user.id);
+
+  // Try to select the user's progress
+  console.log("🔍 Checking for existing progress row...");
+  const { data, error } = await client
     .from('user_progress')
     .select('*')
     .eq('user_id', user.id)
     .single();
 
+  if (error && error.code !== 'PGRST116') { // PGRST116 = no rows found
+    console.error("⚠️ SELECT error:", error.message);
+    return;
+  }
+
   if (data) {
+    console.log("📦 Progress found:", data);
     window.progress = data;
-    console.log("Progress loaded:", data);
   } else {
-    // New user, insert initial row
-    const { error: insertError } = await supabase
+    console.log("🆕 No row found. Attempting to insert new progress row...");
+
+    const { error: insertError } = await client
       .from('user_progress')
       .insert([{ user_id: user.id }]);
+
     if (insertError) {
-      console.error("Failed to insert initial progress row:", insertError.message);
+      console.error("❌ INSERT error:", insertError.message);
+      alert("Couldn't create your progress row. Check your RLS policy or table schema.");
+      return;
     }
-    window.progress = {};
+
+    console.log("✅ Row inserted successfully!");
+    window.progress = {}; // Initialize empty progress state
   }
 }
 
