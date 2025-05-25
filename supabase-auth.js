@@ -102,7 +102,7 @@ async function updateCounter(character, type, amount) {
   const current = window.progress?.[column] || 0;
   const newValue = current + amount;
 
-  const { error } = await supabase
+  const { error } = await client
     .from('user_progress')
     .update({ [column]: newValue })
     .eq('user_id', user.id);
@@ -111,6 +111,7 @@ async function updateCounter(character, type, amount) {
     console.error(`Failed to update ${column}:`, error.message);
   } else {
     window.progress[column] = newValue;
+    console.log(`✅ ${column} updated to ${newValue}`);
   }
 }
 
