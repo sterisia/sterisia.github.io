@@ -73,6 +73,7 @@ async function loadUserProgress() {
   if (data) {
     console.log("📦 Progress found:", data);
     window.progress = data;
+    displayProgressValues(); // ✅ Update UI
   } else {
     console.log("🆕 No row found. Attempting to insert new progress row...");
 
@@ -87,7 +88,15 @@ async function loadUserProgress() {
     }
 
     console.log("✅ Row inserted successfully!");
-    window.progress = {}; // Initialize empty progress state
+    // Set default values
+    window.progress = {
+      alph_enc: 0, alph_fav: 0,
+      ans_enc: 0, ans_fav: 0,
+      cas_enc: 0, cas_fav: 0,
+      sol_enc: 0, sol_fav: 0,
+      veg_enc: 0, veg_fav: 0
+    };
+    displayProgressValues(); // ✅ Update UI
   }
 }
 
