@@ -120,6 +120,30 @@ async function updateAndNavigate(character, type, amount, url) {
   window.location.href = url;
 }
 
+function displayProgressValues() {
+  if (!window.progress) {
+    console.warn("⚠️ Progress not available yet.");
+    return;
+  }
+
+  const keys = [
+    "alph_enc", "alph_fav",
+    "ans_enc", "ans_fav",
+    "cas_enc", "cas_fav",
+    "sol_enc", "sol_fav",
+    "veg_enc", "veg_fav"
+  ];
+
+  for (const key of keys) {
+    const el = document.getElementById(key);
+    if (el) {
+      el.textContent = window.progress[key] ?? 0;
+    } else {
+      console.warn(`⚠️ No element with ID "${key}" found in HTML`);
+    }
+  }
+}
+
 
 window.addEventListener("load", async () => {
   console.log("🚀 window.addEventListener fired");
