@@ -109,6 +109,26 @@ async function updateCounter(character, type, amount) {
   }
 }
 
+window.onload = async () => {
+  console.log("🚀 window.onload fired");
+
+  const { data: { user }, error: userErr } = await client.auth.getUser();
+  if (userErr) {
+    console.error("⛔ Auth error:", userErr.message);
+    return;
+  }
+
+  if (!user) {
+    console.warn("⛔ No user found, redirecting...");
+    redirectToLogin();
+    return;
+  }
+
+  console.log("👤 Logged in as:", user.email || user.id);
+  await loadUserProgress();
+};
+
+
 // -------------------- PAGE INIT --------------------
 
 // window.onload = async () => {
