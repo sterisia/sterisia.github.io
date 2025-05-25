@@ -35,8 +35,67 @@
             <p>Vega Favorability: <span id="veg_fav"></span></p>
           </div>
 
-          
-          <script src="../supabase-auth.js"></script>
+        <script>
+        function encountSummary() {
+            const counts = [
+            window.progress["alph_enc"],
+            window.progress["ans_enc"],
+            window.progress["cas_enc"],
+            window.progress["sol_enc"],
+            window.progress["veg_enc"]
+            ];
+            return Math.max(...counts);
+        }
+
+        function generateEndingSummary() {
+            let multEnds = 0;
+            const summary = document.getElementById("summary");
+            const favSummary = document.getElementById("favSummary");
+            const favSum2 = document.getElementById("favSum2");
+            const endingResult = document.getElementById("endingResult");
+
+            const charOrder = ["alph", "ans", "cas", "sol", "veg"];
+            const charNames = {
+            alph: "Alpheratz",
+            ans: "Anser",
+            cas: "Castor",
+            sol: "Sol",
+            veg: "Vega"
+            };
+
+            const max = encountSummary();
+            document.getElementById("max").innerHTML = max;
+
+            for (const char of charOrder) {
+            const enc = Number(window.progress[`${char}_enc`]);
+            const fav = Number(window.progress[`${char}_fav`]);
+
+            if (enc === max) {
+                multEnds++;
+                summary.innerHTML = `You have met with ${charNames[char]} the most.`;
+                favSummary.innerHTML = fav;
+                favSum2.innerHTML = charNames[char];
+
+                if (fav <= 0) {
+                endingResult.innerHTML = "Bro how, you got him to dislike you more than when you started. <br><br> You have achieved the You're Not Polaris Ending!";
+                } else if (fav > 5) {
+                endingResult.innerHTML = "He seriously wants you out of his head. Seriously. <br><br> You have achieved the More than Friends Ending??";
+                } else {
+                endingResult.innerHTML = `${charNames[char]} sees you exactly as a friend! No more, no less T.T <br><br> You have achieved the platonic ending.`;
+                }
+            }
+            }
+
+            if (multEnds > 1) {
+            summary.innerHTML = "You either played around too much or you didn't play at all.";
+            favSummary.innerHTML = "N/A";
+            favSum2.innerHTML = "N/A";
+            endingResult.innerHTML = "You have not managed to meet any one love interest sufficiently or exclusively enough times. You have achieved the Everyone's A Jolly Group of Friends Ending!";
+            }
+        }
+        </script>
+
+        <script src="../supabase-auth.js"></script>
 
     </body>
 </html>
