@@ -136,7 +136,7 @@ window.addEventListener("load", async () => {
 
   if (window.location.pathname.includes("login.html")) {
     console.log("➡️ User already logged in, redirecting to game...");
-    window.location.href = "index.html"; // Change this to your main game page
+    window.location.href = "error.html"; // Change this to your main game page
     return;
   }
 
