@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>RESTART</title>
         <style>
-
             body{
                 background-color: #C8BDE0;
             }
@@ -25,7 +23,6 @@
                 font-style: normal;
             }
 
-
             h1{
                 text-align: center;
                 font-family: 'LeeSeoyun';
@@ -41,7 +38,6 @@
                 padding: 2vw;
                 border-style: ridge;
             }
-
 
             button:hover{
                 background-color: #B7C3D3;
@@ -73,13 +69,18 @@
             }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <!-- Import your auth script to use the shared client -->
+        <script src="../path/to/your/supabase-auth.js"></script>
         <script>
-            const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ha2Rxa3l4c3phdnp3bWZvbGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNDIxNTcsImV4cCI6MjA2MzcxODE1N30.P-9C4DxK-TxUhBazAcRLD-LmsbaawLH6LoCeTphj6ys');
-
             async function deleteData() {
-                localStorage.clear(); // For older versions
-
+                console.log("🔄 Starting deleteData function...");
+                
+                // Use the client from supabase-auth.js instead of creating a new one
                 const { data: { user }, error } = await client.auth.getUser();
+                
+                console.log("👤 Current user:", user);
+                console.log("❌ Auth error:", error);
+                
                 if (error || !user) {
                     alert("You're not logged in — nothing to reset.");
                     return;
@@ -104,13 +105,16 @@
                     return;
                 }
 
+                // Also reset the local progress object if it exists
+                if (window.progress) {
+                    window.progress = resetFields;
+                }
+
                 alert("✅ All progress has been reset!");
             }
-
         </script>
     </head>
     <body>
-
         <div class="headerBar">
             <h1>RESTART PAGE</h1>
         </div>
@@ -136,6 +140,5 @@
         <div class="navLinks">
             <a href="#">CHAPTERS</a>
         </div>
-        
     </body>
 </html>
