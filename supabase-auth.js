@@ -1,4 +1,4 @@
-const supabase = supabase.createClient('https://your-project.supabase.co', 'your-anon-key');
+const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ha2Rxa3l4c3phdnp3bWZvbGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNDIxNTcsImV4cCI6MjA2MzcxODE1N30.P-9C4DxK-TxUhBazAcRLD-LmsbaawLH6LoCeTphj6ys');
 
 // -------------------- AUTH FUNCTIONS --------------------
 
@@ -6,7 +6,7 @@ async function signIn() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await client.auth.signInWithPassword({ email, password });
   if (error) {
     alert(error.message);
   } else {
@@ -18,7 +18,7 @@ async function signUp() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signUp({ email, password });
+  const { error } = await client.auth.signUp({ email, password });
   if (error) {
     alert(error.message);
   } else {
@@ -27,14 +27,14 @@ async function signUp() {
 }
 
 async function logout() {
-  await supabase.auth.signOut();
+  await client.auth.signOut();
   location.reload();
 }
 
 // -------------------- GAME PROGRESS --------------------
 
 async function loadUserProgress() {
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await client.auth.getUser();
   if (!user) {
     redirectToLogin();
     return;
@@ -62,7 +62,7 @@ async function loadUserProgress() {
 }
 
 async function updateCounter(character, type, amount) {
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data: { user } } = await client.auth.getUser();
   if (!user) {
     redirectToLogin();
     return;
@@ -87,7 +87,7 @@ async function updateCounter(character, type, amount) {
 // -------------------- PAGE INIT --------------------
 
 // window.onload = async () => {
-//   const { data: { user } } = await supabase.auth.getUser();
+//   const { data: { user } } = await client.auth.getUser();
 
 //   if (!user && !window.location.href.includes("login.html")) {
 //     // Redirect users who are not logged in (unless they’re already on the login page)

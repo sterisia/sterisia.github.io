@@ -12,14 +12,28 @@
     </head>
 
     <body class="starterBack">
-        
 
-    <div class="classicText">
-        <input id="email" placeholder="Email" />
-        <input id="password" type="password" />
-        <button onclick="signIn()">Sign In</button>
-        <button onclick="signUp()">Sign Up</button>
-    </div>
+        <div class="title">
+            <p>This Is Your Last Chance to Leave...</p>
+        </div>
+
+        <!-- EMAIL AND PASSWORD FIELDS -->
+        <div class="classicText" style="margin-top: 10%;">
+            <input class="logAuth" id="email" placeholder="Email" />
+            <input class="logAuth" id="password" type="password" />
+        </div>
+
+        <!-- SIGN IN AND SIGN UP BUTTONS -->
+        <div class="classicText" style="margin-top: 5%;">
+            <button class="logBtns" onclick="signIn()">Sign In</button>
+            <button class="logBtns" onclick="signUp()">Sign Up</button>
+        </div>
+
+
+        <div class="classicText" style="margin-top: 5%;">
+            <a href="error.html">I'd rather be anonymous!!</a>
+            <p>(Your data will not be saved and may hinder progress.)</p>
+        </div>
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>

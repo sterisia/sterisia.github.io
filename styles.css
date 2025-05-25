@@ -238,6 +238,25 @@ iframe{
     margin-left: 5%;
 }
 
+.logAuth{
+    background-color: white;
+    color: black;
+    font-family: 'S-CoreDream';
+    border-radius: 25px;
+    padding: 1%;
+    width: 25%
+}
+
+.logBtns{
+    background-color:#C8BDE0;
+    color: black;
+    font-family: 'S-CoreDream';
+    margin: 0.5%;
+    border-radius: 10px;
+    padding: 1%;
+    width: 25%;
+}
+
 /* Glossary Title Formatting */
 .glossTitle{
     color: azure;
