@@ -115,6 +115,12 @@ async function updateCounter(character, type, amount) {
   }
 }
 
+async function updateAndNavigate(character, type, amount, url) {
+  await updateCounter(character, type, amount);
+  window.location.href = url;
+}
+
+
 window.addEventListener("load", async () => {
   console.log("🚀 window.addEventListener fired");
 
