@@ -2,6 +2,11 @@ console.log("📣 supabase-auth.js loaded");
 
 const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ha2Rxa3l4c3phdnp3bWZvbGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNDIxNTcsImV4cCI6MjA2MzcxODE1N30.P-9C4DxK-TxUhBazAcRLD-LmsbaawLH6LoCeTphj6ys');
 
+client.auth.getUser().then(({ data: { user } }) => {
+  console.log("👤 Detected user after page load:", user);
+});
+
+
 // -------------------- AUTH FUNCTIONS --------------------
 
 async function signIn() {
@@ -109,25 +114,35 @@ async function updateCounter(character, type, amount) {
   }
 }
 
-window.onload = async () => {
-  console.log("🚀 window.onload fired");
+window.addEventListener("load", async () => {
+  console.log("🚀 window.addEventListener fired");
 
   const { data: { user }, error: userErr } = await client.auth.getUser();
+
   if (userErr) {
     console.error("⛔ Auth error:", userErr.message);
     return;
   }
 
+  console.log("👤 Detected user after page load:", user);
+
   if (!user) {
-    console.warn("⛔ No user found, redirecting...");
-    redirectToLogin();
+    if (!window.location.pathname.includes("login.html")) {
+      console.warn("⛔ No user found, redirecting to login...");
+      window.location.href = "login.html";
+    }
     return;
   }
 
-  console.log("👤 Logged in as:", user.email || user.id);
-  await loadUserProgress();
-};
+  if (window.location.pathname.includes("login.html")) {
+    console.log("➡️ User already logged in, redirecting to game...");
+    window.location.href = "index.html"; // Change this to your main game page
+    return;
+  }
 
+  console.log("📦 Loading progress...");
+  await loadUserProgress();
+});
 
 // -------------------- PAGE INIT --------------------
 
