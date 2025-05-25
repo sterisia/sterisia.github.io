@@ -24,75 +24,57 @@
             <!-- ALPHERATZ=============================================================================================== -->
             <div style="max-width: fit-content; margin-left: auto; margin-right: auto"> 
                 <div style="float: left;" class="storyProgBunTest" style="margin-top: 10%;">
-                    <a onclick="alphCharPlus(1); alphFavPlus(-3)" href="test2.html" class="storyProgText">Alpheratz -3</a>
+                    <button class="storyProgText" onclick="updateCounter('alph', 'fav', -3); updateCounter('alph', 'enc', 1)">Alpheratz -3</button>
                 </div>
                 <p style="float:left; margin-left: 2vw; margin-right: 2vw;">&nbsp;</p>
                 <div style="float: left;" class="storyProgBunTest" style="margin-top: 10%;">
-                    <a onclick="alphCharPlus(1); alphFavPlus(4)" href="test2.html" class="storyProgText">Alpheratz +4</a>
+                    <button class="storyProgText" onclick="updateCounter('alph', 'fav', 4); updateCounter('alph', 'enc', 1)">Alpheratz +4</button>
                 </div>
             </div>
 
             <!-- ANSER==================================================================================================== -->
             <div style="max-width: fit-content; margin-left: auto; margin-right: auto"> 
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="ansCharPlus(1); ansFavPlus(-3)" href="test2.html" class="storyProgText">Anser -3</a>
+                    <button class="storyProgText" onclick="updateCounter('ans', 'fav', -3); updateCounter('ans', 'enc', 1)">Anser -3</button>
                 </div>
                 <p style="float:left; margin-left: 2vw; margin-right: 2vw;">&nbsp;</p>
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="ansCharPlus(1); ansFavPlus(4)" href="test2.html" class="storyProgText">Anser +4</a>
+                    <button class="storyProgText" onclick="updateCounter('ans', 'fav', 4); updateCounter('ans', 'enc', 1)">Anser +4</button>
                 </div>    
             </div>
 
             <!-- CASTOR=================================================================================================== -->
             <div style="max-width: fit-content; margin-left: auto; margin-right: auto"> 
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="casCharPlus(1); casFavPlus(-3)" href="test2.html" class="storyProgText">Castor -3</a>
+                    <button class="storyProgText" onclick="updateCounter('cas', 'fav', -3); updateCounter('cas', 'enc', 1)">Castor -3</button>
                 </div>
                 <p style="float:left; margin-left: 2vw; margin-right: 2vw;">&nbsp;</p>
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="casCharPlus(1); casFavPlus(4)" href="test2.html" class="storyProgText">Castor +4</a>
-                </div>
+                    <button class="storyProgText" onclick="updateCounter('cas', 'fav', 4); updateCounter('cas', 'enc', 1)">Castor +4</button>
+                </div>    
             </div>
 
             <!-- SOL====================================================================================================== -->
             <div style="max-width: fit-content; margin-left: auto; margin-right: auto"> 
-                <div style="float: left;" class="storyProgBunTest">
-                    <a onclick="solCharPlus(1); solFavPlus(-3)" href="test2.html" class="storyProgText">Sol -3</a>
+                <div style="float: left;" class="storyProgBunTest" >
+                    <button class="storyProgText" onclick="updateCounter('sol', 'fav', -3); updateCounter('sol', 'enc', 1)">Sol -3</button>
                 </div>
                 <p style="float:left; margin-left: 2vw; margin-right: 2vw;">&nbsp;</p>
-                <div style="float: left;" class="storyProgBunTest">
-                    <a onclick="solCharPlus(1); solFavPlus(4)" href="test2.html" class="storyProgText">Sol +4</a>
-                </div>
+                <div style="float: left;" class="storyProgBunTest" >
+                    <button class="storyProgText" onclick="updateCounter('sol', 'fav', 4); updateCounter('sol', 'enc', 1)">Sol +4</button>
+                </div>    
             </div>
 
             <!-- VEGA====================================================================================================== -->
             <div style="max-width: fit-content; margin-left: auto; margin-right: auto"> 
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="vegCharPlus(1); vegFavPlus(-3)" href="test2.html" class="storyProgText">Vega -3</a>
+                    <button class="storyProgText" onclick="updateCounter('veg', 'fav', -3); updateCounter('veg', 'enc', 1)">Vega -3</button>
                 </div>
                 <p style="float:left; margin-left: 2vw; margin-right: 2vw;">&nbsp;</p>
                 <div style="float: left;" class="storyProgBunTest" >
-                    <a onclick="vegCharPlus(1); vegFavPlus(4)" href="test2.html" class="storyProgText">Vega +4</a>
-                </div>
+                    <button class="storyProgText" onclick="updateCounter('veg', 'fav', 4); updateCounter('veg', 'enc', 1)">Vega +4</button>
+                </div>    
             </div>
-        </div>
-
-
-        <script>
-            console.log("Alpheratz: ", localStorage.alphFavCt)
-            console.log("Anser: ", localStorage.ansFavCt)
-            console.log("Castor: ",localStorage.casFavCt)
-            console.log("Sol: ",localStorage.solFavCt)
-            console.log("Vega: ",localStorage.vegFavCt)
-            console.log("------------")
-            console.log("Alpheratz: ", localStorage.alphCharCt)
-            console.log("Anser: ", localStorage.ansCharCt)
-            console.log("Castor: ",localStorage.casCharCt)
-            console.log("Sol: ",localStorage.solCharCt)
-            console.log("Vega: ",localStorage.vegCharCt)
-
-        </script>
-
         
         <p style="text-align: center; font-size: 1.5vw;"> <a href="testResult.html">RESULTS</a> </p>
         <script src="../supabase-auth.js"></script>
