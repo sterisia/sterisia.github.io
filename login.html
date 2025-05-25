@@ -1,4 +1,4 @@
-<!-- Title Page!! -->
+<!-- Login Page!! -->
 
 <!DOCTYPE html>
 
@@ -13,21 +13,13 @@
 
     <body class="starterBack">
         
-        <!-- TITLE PAGE -->
-        <div id='titlePage'>
-            <h1>Lyx's Lies</h1> 
-        </div>
 
-
-        <div id="portal" data-aos="fade" data-aos-delay="1000" data-aos-duration="1000">
-            <a id="portalText" href="error.html">*--Don't Click--*</a>
-        </div>
-
-
-        <div class="classicText">
-            <p>No seriously, don't.</p>
-        </div>
-
+    <div class="classicText">
+        <input id="email" placeholder="Email" />
+        <input id="password" type="password" />
+        <button onclick="signIn()">Sign In</button>
+        <button onclick="signUp()">Sign Up</button>
+    </div>
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
