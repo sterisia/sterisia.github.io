@@ -5,16 +5,25 @@ const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co',
 // -------------------- AUTH FUNCTIONS --------------------
 
 async function signInWithGoogle() {
+  console.log("🔄 Starting Google sign-in...");
+  console.log("📍 Current URL:", window.location.href);
+  
   const { error } = await client.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/error.html` // Update this path
+      redirectTo: window.location.href, // Redirect back to current page
+      queryParams: {
+        access_type: 'offline',
+        prompt: 'consent',
+      }
     }
   });
   
   if (error) {
     console.error('Google sign-in error:', error.message);
     alert(error.message);
+  } else {
+    console.log("✅ OAuth redirect initiated");
   }
 }
 
@@ -37,15 +46,46 @@ async function signIn() {
 // Add a manual session check function
 async function checkSession() {
   console.log("🔄 Manually checking session...");
+  
   const { data: sessionData, error } = await client.auth.getSession();
+  console.log("📦 Session check result:", sessionData, error);
   
   if (error) {
     console.error("Session check error:", error);
     return null;
   }
   
-  console.log("Session data:", sessionData);
-  return sessionData?.session?.user;
+  const user = sessionData?.session?.user;
+  console.log("👤 User found:", user?.email || "No user");
+  console.log("🔑 Session valid:", !!sessionData?.session);
+  console.log("🕒 Expires at:", sessionData?.session?.expires_at);
+  
+  return user;
+}
+
+// Add a function to manually try different auth methods
+async function debugAuth() {
+  console.log("🐛 Starting auth debug...");
+  
+  // Method 1: getSession
+  console.log("1️⃣ Trying getSession()...");
+  const { data: sessionData } = await client.auth.getSession();
+  console.log("Session:", sessionData);
+  
+  // Method 2: getUser  
+  console.log("2️⃣ Trying getUser()...");
+  const { data: userData } = await client.auth.getUser();
+  console.log("User:", userData);
+  
+  // Method 3: Check URL for tokens
+  console.log("3️⃣ Checking URL...");
+  console.log("Hash:", window.location.hash);
+  console.log("Search:", window.location.search);
+  
+  // Method 4: Try refresh
+  console.log("4️⃣ Trying refresh...");
+  const { data: refreshData } = await client.auth.refreshSession();
+  console.log("Refresh:", refreshData);
 }
 
 async function signUp() {
@@ -236,7 +276,7 @@ function displayProgressValues() {
 function redirectToLogin() {
   if (!window.location.pathname.includes("login.html")) {
     // Go up directories to find login page - adjust path as needed
-    window.location.href = "/login.html"; // or "../../login.html" if deeper
+    window.location.href = "../login.html"; // or "../../login.html" if deeper
   }
 }
 
@@ -245,12 +285,30 @@ function redirectToLogin() {
 window.addEventListener("DOMContentLoaded", async () => {
   console.log("🚀 DOMContentLoaded — checking session");
   console.log("📍 Current page:", window.location.pathname);
+  console.log("🔗 Full URL:", window.location.href);
 
-  // Wait a bit for OAuth redirects to process
-  await new Promise(resolve => setTimeout(resolve, 100));
+  // Check for OAuth fragments in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  
+  console.log("🔍 URL search params:", urlParams.toString());
+  console.log("🔍 URL hash params:", hashParams.toString());
+  
+  // Check if this might be an OAuth callback
+  if (hashParams.has('access_token') || urlParams.has('code')) {
+    console.log("🔄 Detected OAuth callback, processing...");
+    // Give OAuth more time to process
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  } else {
+    // Normal page load, shorter wait
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
 
   // Handle OAuth callback
   const { data: sessionData, error: sessionErr } = await client.auth.getSession();
+  
+  console.log("📦 Session data:", sessionData);
+  console.log("⚠️ Session error:", sessionErr);
   
   if (sessionErr) {
     console.error("❌ Error retrieving session:", sessionErr.message);
@@ -262,12 +320,25 @@ window.addEventListener("DOMContentLoaded", async () => {
   const user = sessionData?.session?.user;
   console.log("👤 Retrieved user:", user);
   console.log("🔑 Session exists:", !!sessionData?.session);
+  console.log("🕒 Session expires at:", sessionData?.session?.expires_at);
 
   const isLoginPage = window.location.pathname.includes("login.html");
   
   // Handle different scenarios
   if (!user) {
     console.log("🎮 No user logged in - continuing with local progress");
+    
+    // Check if we should try to refresh the session
+    console.log("🔄 Attempting session refresh...");
+    const { data: refreshData, error: refreshError } = await client.auth.refreshSession();
+    console.log("🔄 Refresh result:", refreshData, refreshError);
+    
+    if (refreshData?.session?.user) {
+      console.log("✅ Session refreshed successfully!");
+      await loadUserProgress();
+      return;
+    }
+    
     loadLocalProgress();
     return;
   }
