@@ -157,16 +157,18 @@ function displayProgressValues() {
 
 
 window.addEventListener("load", async () => {
-  console.log("🚀 window.addEventListener fired");
+  console.log("🚀 Page loaded — checking session...");
 
-  const { data: { user }, error: userErr } = await client.auth.getUser();
-
-  if (userErr) {
-    console.error("⛔ Auth error:", userErr.message);
+  // Wait for Supabase to restore session
+  const { data: sessionData, error: sessionErr } = await client.auth.getSession();
+  if (sessionErr) {
+    console.error("⛔ Error getting session:", sessionErr.message);
     return;
   }
 
-  console.log("👤 Detected user after page load:", user);
+  const user = sessionData?.session?.user;
+
+  console.log("👤 Session-restored user:", user);
 
   if (!user) {
     if (!window.location.pathname.includes("login.html")) {
@@ -178,7 +180,7 @@ window.addEventListener("load", async () => {
 
   if (window.location.pathname.includes("login.html")) {
     console.log("➡️ User already logged in, redirecting to game...");
-    window.location.href = "error.html"; // Change this to your main game page
+    window.location.href = "chapters/Chapter%20One/chap1-1.html"; // or wherever you want
     return;
   }
 
