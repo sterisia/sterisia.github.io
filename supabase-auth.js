@@ -8,7 +8,7 @@ async function signInWithGoogle() {
   const { error } = await client.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/index.html` // or whatever your main game page is
+      redirectTo: `${window.location.origin}/error.html` // or whatever your main game page is
     }
   });
   
