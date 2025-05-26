@@ -2,12 +2,21 @@ console.log("📣 supabase-auth.js loaded");
 
 const client = supabase.createClient('https://nakdqkyxszavzwmfolaz.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ha2Rxa3l4c3phdnp3bWZvbGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxNDIxNTcsImV4cCI6MjA2MzcxODE1N30.P-9C4DxK-TxUhBazAcRLD-LmsbaawLH6LoCeTphj6ys');
 
-client.auth.getUser().then(({ data: { user } }) => {
-  console.log("👤 Detected user after page load:", user);
-});
-
-
 // -------------------- AUTH FUNCTIONS --------------------
+
+async function signInWithGoogle() {
+  const { error } = await client.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: `${window.location.origin}/index.html` // or whatever your main game page is
+    }
+  });
+  
+  if (error) {
+    console.error('Google sign-in error:', error.message);
+    alert(error.message);
+  }
+}
 
 async function signIn() {
   const email = document.getElementById("email").value;
@@ -17,7 +26,8 @@ async function signIn() {
   if (error) {
     alert(error.message);
   } else {
-    location.reload();
+    // Redirect to main game page instead of reloading
+    window.location.href = "index.html"; // or your main game page
   }
 }
 
@@ -25,7 +35,14 @@ async function signUp() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await client.auth.signUp({ email, password });
+  const { error } = await client.auth.signUp({ 
+    email, 
+    password,
+    options: {
+      emailRedirectTo: `${window.location.origin}/index.html`
+    }
+  });
+  
   if (error) {
     alert(error.message);
   } else {
@@ -35,7 +52,7 @@ async function signUp() {
 
 async function logout() {
   await client.auth.signOut();
-  location.reload();
+  window.location.href = "login.html";
 }
 
 // -------------------- GAME PROGRESS --------------------
@@ -76,30 +93,42 @@ async function loadUserProgress() {
     displayProgressValues(); 
     generateEndingSummary(); 
   } else {
-    console.log("🆕 No row found. Attempting to insert new progress row...");
-
-    const { error: insertError } = await client
-      .from('user_progress')
-      .insert([{ user_id: user.id }]);
-
-    if (insertError) {
-      console.error("❌ INSERT error:", insertError.message);
-      alert("Couldn't create your progress row. Check your RLS policy or table schema.");
-      return;
-    }
-
-    console.log("✅ Row inserted successfully!");
-    // Set default values
-    window.progress = {
-      alph_enc: 0, alph_fav: 0,
-      ans_enc: 0, ans_fav: 0,
-      cas_enc: 0, cas_fav: 0,
-      sol_enc: 0, sol_fav: 0,
-      veg_enc: 0, veg_fav: 0
-    };
-    displayProgressValues(); 
-    generateEndingSummary(); 
+    console.log("🆕 No row found. Creating new progress row...");
+    await createUserProgress(user.id);
   }
+}
+
+async function createUserProgress(userId) {
+  const defaultProgress = {
+    user_id: userId,
+    alph_enc: 0, 
+    alph_fav: 0,
+    ans_enc: 0, 
+    ans_fav: 0,
+    cas_enc: 0, 
+    cas_fav: 0,
+    sol_enc: 0, 
+    sol_fav: 0,
+    veg_enc: 0, 
+    veg_fav: 0
+  };
+
+  const { data, error } = await client
+    .from('user_progress')
+    .insert([defaultProgress])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("❌ INSERT error:", error.message);
+    alert("Couldn't create your progress row. Check your RLS policy or table schema.");
+    return;
+  }
+
+  console.log("✅ Progress row created successfully!");
+  window.progress = data;
+  displayProgressValues(); 
+  generateEndingSummary(); 
 }
 
 async function updateCounter(character, type, amount) {
@@ -149,68 +178,69 @@ function displayProgressValues() {
     const el = document.getElementById(key);
     if (el) {
       el.textContent = window.progress[key] ?? 0;
-    } else {
-      console.warn(`⚠️ No element with ID "${key}" found in HTML`);
     }
   }
 }
 
+function redirectToLogin() {
+  if (!window.location.pathname.includes("login.html")) {
+    window.location.href = "login.html";
+  }
+}
+
+// -------------------- SESSION MANAGEMENT --------------------
 
 window.addEventListener("DOMContentLoaded", async () => {
   console.log("🚀 DOMContentLoaded — checking session");
 
-  // Restore session
+  // Handle OAuth callback
   const { data: sessionData, error: sessionErr } = await client.auth.getSession();
-
+  
   if (sessionErr) {
     console.error("❌ Error retrieving session:", sessionErr.message);
     return;
   }
 
   const user = sessionData?.session?.user;
-
-  // Log for debugging
   console.log("👤 Retrieved user:", user);
 
   const isLoginPage = window.location.pathname.includes("login.html");
-
+  
+  // Handle different page scenarios
   if (!user) {
-    // Redirect to login ONLY if not already there
     if (!isLoginPage) {
       console.warn("🔒 No user — redirecting to login");
-      window.location.href = "login.html";
+      redirectToLogin();
     }
     return;
   }
 
-  // If on login page and user is logged in, go to game
+  // User is authenticated
   if (isLoginPage) {
-    console.log("✅ Already logged in — redirecting to game");
-    window.location.href = "error.html";
+    console.log("✅ Already logged in — redirecting to main page");
+    window.location.href = "error.html"; // Change this to your actual main page
     return;
   }
 
-  // Otherwise, load progress normally
+  // Load progress for authenticated user on game pages
   console.log("📦 User authenticated — loading progress");
   await loadUserProgress();
 });
 
-// -------------------- PAGE INIT --------------------
-
-// window.onload = async () => {
-//   const { data: { user } } = await client.auth.getUser();
-
-//   if (!user && !window.location.href.includes("login.html")) {
-//     // Redirect users who are not logged in (unless they’re already on the login page)
-//     redirectToLogin();
-//   } else if (user) {
-//     await loadUserProgress();
-//   }
-// };
-
-// function redirectToLogin() {
-//   // You can customize this to show a form instead
-//   if (!window.location.href.includes("login.html")) {
-//     window.location.href = "login.html";
-//   }
-// }
+// Listen for auth state changes
+client.auth.onAuthStateChange(async (event, session) => {
+  console.log('Auth state changed:', event, session?.user?.email);
+  
+  if (event === 'SIGNED_IN') {
+    // User just signed in, create progress if needed
+    if (session?.user) {
+      await loadUserProgress();
+    }
+  } else if (event === 'SIGNED_OUT') {
+    // Clear progress data
+    window.progress = null;
+    if (!window.location.pathname.includes("login.html")) {
+      redirectToLogin();
+    }
+  }
+});
