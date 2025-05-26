@@ -8,7 +8,7 @@ async function signInWithGoogle() {
   const { error } = await client.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${window.location.origin}/error.html` // or whatever your main game page is
+      redirectTo: `${window.location.origin}/error.html` // Update this path
     }
   });
   
@@ -22,13 +22,30 @@ async function signIn() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await client.auth.signInWithPassword({ email, password });
+  const { data, error } = await client.auth.signInWithPassword({ email, password });
   if (error) {
+    console.error('Sign in error:', error.message);
     alert(error.message);
   } else {
-    // Redirect to main game page instead of reloading
-    window.location.href = "index.html"; // or your main game page
+    console.log('✅ Sign in successful:', data.user?.email);
+    // Force session refresh before redirect
+    await client.auth.getSession();
+    window.location.href = "error.html"; // Update this path
   }
+}
+
+// Add a manual session check function
+async function checkSession() {
+  console.log("🔄 Manually checking session...");
+  const { data: sessionData, error } = await client.auth.getSession();
+  
+  if (error) {
+    console.error("Session check error:", error);
+    return null;
+  }
+  
+  console.log("Session data:", sessionData);
+  return sessionData?.session?.user;
 }
 
 async function signUp() {
@@ -39,7 +56,7 @@ async function signUp() {
     email, 
     password,
     options: {
-      emailRedirectTo: `${window.location.origin}/index.html`
+      emailRedirectTo: `${window.location.origin}/error.html`
     }
   });
   
@@ -67,8 +84,8 @@ async function loadUserProgress() {
     return;
   }
   if (!user) {
-    console.warn("⛔ No user found, redirecting...");
-    redirectToLogin();
+    console.log("👤 No user logged in - using local storage for progress");
+    loadLocalProgress();
     return;
   }
 
@@ -90,6 +107,7 @@ async function loadUserProgress() {
   if (data) {
     console.log("📦 Progress found:", data);
     window.progress = data;
+    window.isLoggedIn = true;
     displayProgressValues(); 
     generateEndingSummary(); 
   } else {
@@ -131,27 +149,60 @@ async function createUserProgress(userId) {
   generateEndingSummary(); 
 }
 
+// -------------------- LOCAL PROGRESS (FOR NON-LOGGED IN USERS) --------------------
+
+function loadLocalProgress() {
+  // Use in-memory storage since localStorage isn't available in Claude artifacts
+  const defaultProgress = {
+    alph_enc: 0, alph_fav: 0,
+    ans_enc: 0, ans_fav: 0,
+    cas_enc: 0, cas_fav: 0,
+    sol_enc: 0, sol_fav: 0,
+    veg_enc: 0, veg_fav: 0
+  };
+
+  // Try to get from memory or use defaults
+  if (!window.progress) {
+    window.progress = defaultProgress;
+  }
+  
+  window.isLoggedIn = false;
+  console.log("📦 Using local progress:", window.progress);
+  displayProgressValues();
+  generateEndingSummary();
+}
+
+function saveLocalProgress() {
+  // In a real environment, you'd save to localStorage here
+  // For now, it's just kept in memory during the session
+  console.log("💾 Local progress saved to memory");
+}
+
 async function updateCounter(character, type, amount) {
   const { data: { user } } = await client.auth.getUser();
-  if (!user) {
-    redirectToLogin();
-    return;
-  }
-
+  
   const column = `${character}_${type}`;
   const current = window.progress?.[column] || 0;
   const newValue = current + amount;
 
-  const { error } = await client
-    .from('user_progress')
-    .update({ [column]: newValue })
-    .eq('user_id', user.id);
+  if (user && window.isLoggedIn) {
+    // Update in database for logged-in users
+    const { error } = await client
+      .from('user_progress')
+      .update({ [column]: newValue })
+      .eq('user_id', user.id);
 
-  if (error) {
-    console.error(`Failed to update ${column}:`, error.message);
+    if (error) {
+      console.error(`Failed to update ${column}:`, error.message);
+    } else {
+      window.progress[column] = newValue;
+      console.log(`✅ ${column} updated in database to ${newValue}`);
+    }
   } else {
+    // Update locally for non-logged-in users
     window.progress[column] = newValue;
-    console.log(`✅ ${column} updated to ${newValue}`);
+    saveLocalProgress();
+    console.log(`✅ ${column} updated locally to ${newValue}`);
   }
 }
 
@@ -184,7 +235,8 @@ function displayProgressValues() {
 
 function redirectToLogin() {
   if (!window.location.pathname.includes("login.html")) {
-    window.location.href = "login.html";
+    // Go up directories to find login page - adjust path as needed
+    window.location.href = "/login.html"; // or "../../login.html" if deeper
   }
 }
 
@@ -192,55 +244,178 @@ function redirectToLogin() {
 
 window.addEventListener("DOMContentLoaded", async () => {
   console.log("🚀 DOMContentLoaded — checking session");
+  console.log("📍 Current page:", window.location.pathname);
+
+  // Wait a bit for OAuth redirects to process
+  await new Promise(resolve => setTimeout(resolve, 100));
 
   // Handle OAuth callback
   const { data: sessionData, error: sessionErr } = await client.auth.getSession();
   
   if (sessionErr) {
     console.error("❌ Error retrieving session:", sessionErr.message);
+    // Continue without auth
+    loadLocalProgress();
     return;
   }
 
   const user = sessionData?.session?.user;
   console.log("👤 Retrieved user:", user);
+  console.log("🔑 Session exists:", !!sessionData?.session);
 
   const isLoginPage = window.location.pathname.includes("login.html");
   
-  // Handle different page scenarios
+  // Handle different scenarios
   if (!user) {
-    if (!isLoginPage) {
-      console.warn("🔒 No user — redirecting to login");
-      redirectToLogin();
-    }
+    console.log("🎮 No user logged in - continuing with local progress");
+    loadLocalProgress();
     return;
   }
 
   // User is authenticated
   if (isLoginPage) {
     console.log("✅ Already logged in — redirecting to main page");
-    window.location.href = "error.html"; // Change this to your actual main page
+    window.location.href = "error.html"; // Change this to your actual main game page
     return;
   }
 
-  // Load progress for authenticated user on game pages
-  console.log("📦 User authenticated — loading progress");
+  // Load progress for authenticated user
+  console.log("📦 User authenticated — loading cloud progress");
   await loadUserProgress();
 });
+
+// -------------------- PROGRESS MIGRATION --------------------
+
+async function migrateLocalToCloud(localProgress, cloudProgress) {
+  console.log("🔄 Starting progress migration...");
+  console.log("📱 Local progress:", localProgress);
+  console.log("☁️ Cloud progress:", cloudProgress);
+
+  const progressKeys = ['alph_enc', 'alph_fav', 'ans_enc', 'ans_fav', 'cas_enc', 'cas_fav', 'sol_enc', 'sol_fav', 'veg_enc', 'veg_fav'];
+  
+  // Strategy: Take the maximum value for each stat (preserves most progress)
+  const mergedProgress = {};
+  let hasChanges = false;
+
+  for (const key of progressKeys) {
+    const localValue = localProgress[key] || 0;
+    const cloudValue = cloudProgress[key] || 0;
+    const maxValue = Math.max(localValue, cloudValue);
+    
+    mergedProgress[key] = maxValue;
+    
+    if (maxValue !== cloudValue) {
+      hasChanges = true;
+      console.log(`📊 ${key}: local(${localValue}) vs cloud(${cloudValue}) → using ${maxValue}`);
+    }
+  }
+
+  if (hasChanges) {
+    console.log("💾 Updating cloud progress with merged data...");
+    
+    const { data: { user } } = await client.auth.getUser();
+    if (!user) return false;
+
+    const { error } = await client
+      .from('user_progress')
+      .update(mergedProgress)
+      .eq('user_id', user.id);
+
+    if (error) {
+      console.error("❌ Migration failed:", error.message);
+      return false;
+    }
+
+    // Update local state
+    window.progress = { ...mergedProgress, user_id: user.id };
+    displayProgressValues();
+    generateEndingSummary();
+    
+    console.log("✅ Progress migration completed successfully!");
+    
+    // Show user-friendly notification
+    showMigrationNotification(localProgress, mergedProgress);
+    return true;
+  } else {
+    console.log("✅ No migration needed - cloud progress is up to date");
+    return false;
+  }
+}
+
+function showMigrationNotification(localProgress, mergedProgress) {
+  // Create a simple notification to show the user what happened
+  const progressKeys = ['alph_enc', 'alph_fav', 'ans_enc', 'ans_fav', 'cas_enc', 'cas_fav', 'sol_enc', 'sol_fav', 'veg_enc', 'veg_fav'];
+  let improvementCount = 0;
+  
+  for (const key of progressKeys) {
+    if ((mergedProgress[key] || 0) > (localProgress[key] || 0)) {
+      improvementCount++;
+    }
+  }
+  
+  if (improvementCount > 0) {
+    // You can customize this notification method
+    console.log(`🎉 Progress merged! Your cloud save had better progress in ${improvementCount} areas.`);
+    
+    // Optional: Show a user-facing notification
+    if (typeof showNotification === 'function') {
+      showNotification(`Welcome back! Your progress has been merged with your cloud save.`);
+    }
+  } else {
+    console.log("📱 Your local progress was saved to the cloud!");
+    
+    if (typeof showNotification === 'function') {
+      showNotification("Your local progress has been saved to the cloud!");
+    }
+  }
+}
+
+// Optional: Helper function for user notifications (you can implement this in your UI)
+function showNotification(message) {
+  // Example implementation - you can customize this
+  if (window.alert) {
+    // For now, just log it. You can replace with a nicer notification system
+    console.log("🔔 Notification:", message);
+  }
+}
 
 // Listen for auth state changes
 client.auth.onAuthStateChange(async (event, session) => {
   console.log('Auth state changed:', event, session?.user?.email);
   
   if (event === 'SIGNED_IN') {
-    // User just signed in, create progress if needed
     if (session?.user) {
+      console.log("🔄 User signed in - checking for progress migration");
+      
+      // Store current local progress before loading cloud progress
+      const localProgress = window.progress ? { ...window.progress } : null;
+      const wasUsingLocal = !window.isLoggedIn;
+      
+      // Load cloud progress
       await loadUserProgress();
+      
+      // If we had meaningful local progress and weren't already logged in
+      if (localProgress && wasUsingLocal && hasSignificantProgress(localProgress)) {
+        const cloudProgress = window.progress;
+        await migrateLocalToCloud(localProgress, cloudProgress);
+      } else {
+        console.log("ℹ️ No local progress to migrate or already using cloud progress");
+      }
     }
   } else if (event === 'SIGNED_OUT') {
-    // Clear progress data
-    window.progress = null;
-    if (!window.location.pathname.includes("login.html")) {
-      redirectToLogin();
-    }
+    // Switch back to local progress
+    console.log("👋 User signed out - switching to local progress");
+    loadLocalProgress();
   }
 });
+
+// Helper function to determine if local progress is worth migrating
+function hasSignificantProgress(progress) {
+  if (!progress) return false;
+  
+  const progressKeys = ['alph_enc', 'alph_fav', 'ans_enc', 'ans_fav', 'cas_enc', 'cas_fav', 'sol_enc', 'sol_fav', 'veg_enc', 'veg_fav'];
+  const totalProgress = progressKeys.reduce((sum, key) => sum + (progress[key] || 0), 0);
+  
+  // Consider it significant if there's any progress at all
+  return totalProgress > 0;
+}
