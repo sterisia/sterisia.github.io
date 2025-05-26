@@ -157,34 +157,26 @@ function displayProgressValues() {
 
 
 window.addEventListener("load", async () => {
-  console.log("🚀 Page loaded — checking session...");
+  console.log("🚀 window.addEventListener fired");
 
-  // Wait for Supabase to restore session
   const { data: sessionData, error: sessionErr } = await client.auth.getSession();
-  if (sessionErr) {
-    console.error("⛔ Error getting session:", sessionErr.message);
-    return;
-  }
 
-  const user = sessionData?.session?.user;
-
-  console.log("👤 Session-restored user:", user);
-
-  if (!user) {
+  if (sessionErr || !sessionData.session) {
+    console.error("⛔ Session error or missing:", sessionErr?.message || "No session");
     if (!window.location.pathname.includes("login.html")) {
-      console.warn("⛔ No user found, redirecting to login...");
       window.location.href = "login.html";
     }
     return;
   }
 
+  const user = sessionData.session.user;
+  console.log("✅ Session restored. Logged in user:", user.email);
+
   if (window.location.pathname.includes("login.html")) {
-    console.log("➡️ User already logged in, redirecting to game...");
-    window.location.href = "chapters/Chapter%20One/chap1-1.html"; // or wherever you want
+    window.location.href = "error.html"; // redirect after login
     return;
   }
 
-  console.log("📦 Loading progress...");
   await loadUserProgress();
 });
 
