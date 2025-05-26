@@ -156,27 +156,42 @@ function displayProgressValues() {
 }
 
 
-window.addEventListener("load", async () => {
-  console.log("🚀 window.addEventListener fired");
+window.addEventListener("DOMContentLoaded", async () => {
+  console.log("🚀 DOMContentLoaded — checking session");
 
+  // Restore session
   const { data: sessionData, error: sessionErr } = await client.auth.getSession();
 
-  if (sessionErr || !sessionData.session) {
-    console.error("⛔ Session error or missing:", sessionErr?.message || "No session");
-    if (!window.location.pathname.includes("login.html")) {
+  if (sessionErr) {
+    console.error("❌ Error retrieving session:", sessionErr.message);
+    return;
+  }
+
+  const user = sessionData?.session?.user;
+
+  // Log for debugging
+  console.log("👤 Retrieved user:", user);
+
+  const isLoginPage = window.location.pathname.includes("login.html");
+
+  if (!user) {
+    // Redirect to login ONLY if not already there
+    if (!isLoginPage) {
+      console.warn("🔒 No user — redirecting to login");
       window.location.href = "login.html";
     }
     return;
   }
 
-  const user = sessionData.session.user;
-  console.log("✅ Session restored. Logged in user:", user.email);
-
-  if (window.location.pathname.includes("login.html")) {
-    window.location.href = "error.html"; // redirect after login
+  // If on login page and user is logged in, go to game
+  if (isLoginPage) {
+    console.log("✅ Already logged in — redirecting to game");
+    window.location.href = "error.html";
     return;
   }
 
+  // Otherwise, load progress normally
+  console.log("📦 User authenticated — loading progress");
   await loadUserProgress();
 });
 
