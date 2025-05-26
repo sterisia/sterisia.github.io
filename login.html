@@ -28,6 +28,18 @@
             <button class="logBtns" onclick="signUp()">Sign Up</button>
         </div>
 
+        <button onclick="signInWithGoogle()">Sign in with Google</button>
+
+        <script>
+        async function signInWithGoogle() {
+        const { data, error } = await client.auth.signInWithOAuth({
+            provider: 'google',
+        });
+        if (error) {
+            console.error("Google login failed:", error.message);
+        }
+        }
+        </script>
 
         <div class="classicText" style="margin-top: 5%;">
             <a href="error.html">I'd rather be anonymous!!</a>
